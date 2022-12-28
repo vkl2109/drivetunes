@@ -1,0 +1,36 @@
+.homePage {
+    height: 80vh;
+    width: 100vw;
+}
+.artistsCarousel {
+    width: 100vw;
+    height: 30vh;
+    display: flex;
+    flex-direction: row;
+}
+.artistCard {
+    height: 100%;
+    width: 20vw;
+    background: white;
+    /* border: 1px solid black; */
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.artistImg {
+    height: 20vh;
+    width: 20vh;
+    border-radius: 1000px;
+    transition: 0.2s ease-in-out;
+}
+.artistImg:hover {
+    transform: scale(1.1);
+}
+.artistsTitle {
+    height: 10vh;
+    width: 100%;
+    text-align: left;
+    margin-left: 10vh;
+}
