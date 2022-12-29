@@ -46,7 +46,7 @@ const Home = () => {
 
     return (
         <div className="homePage">
-            <div className="artistsTitle">
+            <div className="titleBar">
                 <h1>Artists:</h1>
             </div>
             <div className="artistsCarousel">
@@ -54,6 +54,7 @@ const Home = () => {
                     return <ArtistCard artistJSON={artistJSON} />
                 })}
             </div>
+            <hr />
         </div>
     )
 }

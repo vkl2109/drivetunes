@@ -28,7 +28,7 @@
 .artistImg:hover {
     transform: scale(1.1);
 }
-.artistsTitle {
+.titleBar {
     height: 10vh;
     width: 100%;
     text-align: left;
