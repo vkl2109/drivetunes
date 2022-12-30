@@ -14,6 +14,11 @@
 .footerContainer {
     position: absolute;
     bottom: 0;
+    justify-content: center;
+}
+.googleSignUpLink{
+    color: white;
+
 }
 .link-title {
     text-decoration: none;
