@@ -6,12 +6,12 @@ const Header = () => {
         <div className="headerContainer">
             <div className="homeLink">
                 <Link to={'/'} className="link-title">
-                    <h1 className="homeTitle">Home</h1>
+                    <img className="headerLogo" src="https://github.com/vkl2109/drivetunes/blob/main/dt-logo-large.png?raw=true" />
                 </Link>
             </div>
             <form className="searchBar">
                 <input className="searchInput" type="text" placeholder="Search..."/>
-                <button className="searchBtn" type="submit">Search</button>
+                <button className="searchBtn" type="submit">🔍</button>
             </form>
         </div>
     )

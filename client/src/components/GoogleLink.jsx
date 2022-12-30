@@ -1,13 +1,15 @@
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import { gapi } from 'gapi-script';
+
 
 const GoogleLink = () => {
     
     
     return(
         <div>
-            HELLO
-            <script src="https://accounts.google.com/gsi/client" async defer></script>
+            <h1 >Sign in with Google page...</h1>
+            {/* <script src="https://accounts.google.com/gsi/client" async defer></script>
             <script>
                 {window.onload = function () {
                     google.accounts.id.initialize({
@@ -16,7 +18,7 @@ const GoogleLink = () => {
                     });
                 google.accounts.id.prompt();
                 }}
-            </script>
+            </script> */}
         </div>
 
         
