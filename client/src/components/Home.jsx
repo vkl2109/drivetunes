@@ -3,8 +3,10 @@ import '../css/home.css'
 import ArtistCard from './ArtistCard.jsx'
 
 const Home = () => {
-    const clientID = import.meta.env.VITE_CLIENT_ID
-    const clientSecret = import.meta.env.VITE_CLIENT_SECRET
+    // const clientID = import.meta.env.VITE_CLIENT_ID
+    const clientID = "9ceb72ef8b7c489392d759addec3f11d"
+    // const clientSecret = import.meta.env.VITE_CLIENT_SECRET
+    const clientSecret = "772b5acad2f449ee8c605819e28e1a32"
     const artists = ['Drake', 'Madonna', 'Elvis', 'Beatles', 'Cannonball']
     const [ artistsJSON, setArtistsJSON ] = useState([]);
 
