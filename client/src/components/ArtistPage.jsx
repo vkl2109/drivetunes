@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom'
+import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react'
 import '../css/artist.css'
 
@@ -69,7 +70,9 @@ const ArtistPage = () => {
                 {artistTracks.map((track, index)=>{
                     return(
                         <div className="trackBlock">
-                            {index + 1}. {track.name}
+                             <Link to={`track/${track.name}`} className="trackLink">
+                                {index + 1}. {track.name}
+                             </Link>
                         </div>
                     )
                 })}

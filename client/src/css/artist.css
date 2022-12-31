@@ -30,3 +30,7 @@
     height: 10%;
     width: 100%;
 }
+.trackLink {
+    text-decoration: none;
+    color: black;
+}

@@ -2,6 +2,7 @@ import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
 import Home from './components/Home.jsx'
 import ArtistPage from './components/ArtistPage.jsx'
+import TrackPage from './components/TrackPage.jsx'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 
@@ -14,7 +15,10 @@ function App() {
         <Header />
         <Routes>
           <Route path={'/'} element={<Home />}/>
-          <Route path={'/artist/:artist'} element={<ArtistPage />}/>
+          <Route path={'/artist/:artist'}>
+            <Route index element={<ArtistPage />} />
+            <Route path={'track/:track'} element={<TrackPage />} />
+          </Route>
         </Routes>
         <Footer />
       </BrowserRouter>
