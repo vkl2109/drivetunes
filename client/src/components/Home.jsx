@@ -5,6 +5,7 @@ import ArtistCard from './ArtistCard.jsx'
 const Home = () => {
     const clientID = import.meta.env.VITE_CLIENT_ID
     const clientSecret = import.meta.env.VITE_CLIENT_SECRET
+    
     const artists = ['Drake', 'Madonna', 'Elvis', 'Beatles', 'Cannonball']
     const [ artistsJSON, setArtistsJSON ] = useState([]);
 

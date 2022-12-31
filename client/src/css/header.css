@@ -1,29 +1,37 @@
 .headerContainer, .footerContainer {
-    height: 10vh;
+    height: 77px;
     width: 100%;
-    background-color: grey;
+    background-color: #35363a;
     padding: 0;
     display: flex;
     flex-direction: row;
 }
 .headerContainer {
     top: 0;
+        justify-content: center;
+
 }
 .footerContainer {
     position: absolute;
     bottom: 0;
+    justify-content: center;
+}
+.googleSignUpLink{
+    color: white;
+
 }
 .link-title {
     text-decoration: none;
-    color: white;
+    color: rgb(0, 0, 0);
 }
-.homeTitle {
-    margin-left: 5vh;
+.headerLogo{
+    width: 80px;
 }
 .searchBar {
-    margin-left: 5vh;
-    margin-top: 1vh;
+    margin-left: 0vh;
     width: 70vw;
+    height: 40px;
+    padding-top: 18.5px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -31,15 +39,19 @@
 }
 .searchInput {
     border-radius: 100px;
+    padding-left: 2vh;
     border: none;
-    height: 5vh;
+    height: 40px;
     width: 80%
 }
 .searchBtn {
     background: none;
-    border: 1px solid black;
+    margin-left: 2vh;
+    border: 0px solid white;
+    background: rgba(255, 255, 255, 0.641);
     border-radius: 100px;
-    height: 5vh;
+    width: 40px;
+    height: 40px;
 }
 .searchBtn:hover {
     background: white;
