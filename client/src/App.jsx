@@ -3,11 +3,11 @@ import Footer from './components/Footer.jsx'
 import Home from './components/Home.jsx'
 import ArtistPage from './components/ArtistPage.jsx'
 import TrackPage from './components/TrackPage.jsx'
+import GoogleLink from './components/GoogleLink'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 
 function App() {
-
 
   return (
     <div className="App">
@@ -19,6 +19,7 @@ function App() {
             <Route index element={<ArtistPage />} />
             <Route path={'track/:track'} element={<TrackPage />} />
           </Route>
+          <Route path={'/googlelink'} element={<GoogleLink />}/>
         </Routes>
         <Footer />
       </BrowserRouter>
