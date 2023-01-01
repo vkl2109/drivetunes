@@ -5,6 +5,7 @@ import '../css/track.css'
 
 const TrackPage = () => {
     const { track } = useParams();
+    const trackURL = track.split('-').join(' ');
     const waveformRef = useRef();
     const clientID = import.meta.env.VITE_CLIENT_ID
     const clientSecret = import.meta.env.VITE_CLIENT_SECRET
@@ -41,7 +42,7 @@ const TrackPage = () => {
             let firstTrack = trackObj.tracks.items[0];
             setCurrentTrack(currentTrack => firstTrack)
         }
-        runFuncs( track )
+        runFuncs( trackURL )
     }, [])
 
     if (waveformRef.current) {
@@ -64,7 +65,7 @@ const TrackPage = () => {
 
     return (
         <div className="trackPage">
-            {track}
+            {trackURL}
             <div ref={waveformRef} className="waveform"></div>
             <button onClick={() => wavesurfer.playPause()}>Play/Pause</button>
         </div>

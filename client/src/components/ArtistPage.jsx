@@ -5,12 +5,12 @@ import '../css/artist.css'
 
 const ArtistPage = () => {
     const { artist } = useParams()
+    const artistURL = artist.split('-').join(' ')
     const clientID = import.meta.env.VITE_CLIENT_ID
     const clientSecret = import.meta.env.VITE_CLIENT_SECRET
     const [ artistTracks, setArtistTracks ] = useState([]);    
     const [ artistObject, setArtistObject ] = useState({});
     const [ artistImgUrl, setArtistImgUrl ] = useState();    
-
 
     const getAccessToken = async () => {
         const result = await fetch('https://accounts.spotify.com/api/token', {
@@ -57,20 +57,20 @@ const ArtistPage = () => {
             setArtistTracks(artistTracks => topTracks.tracks);
             console.log(topTracks);
         }
-        runFuncs(artist)
+        runFuncs(artistURL)
     }, [])
 
     return (
         <div className="artistPage">
             <div className="artistTitle">
                 <img src={artistImgUrl} alt="no image found" className="artistImg"/>
-                <h1>{ artist }</h1>
+                <h1>{ artistURL }</h1>
             </div>
             <div className="artistTracks">
                 {artistTracks.map((track, index)=>{
                     return(
                         <div className="trackBlock" key={index}>
-                             <Link to={`track/${track.name}`} className="trackLink">
+                             <Link to={`track/${track.name.split(' ').join('-')}`} className="trackLink">
                                 {index + 1}. {track.name}
                              </Link>
                         </div>
