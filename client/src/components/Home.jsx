@@ -51,8 +51,8 @@ const Home = () => {
                 <h1>Artists:</h1>
             </div>
             <div className="artistsCarousel">
-                {artistsJSON.map(artistJSON => {
-                    return <ArtistCard artistJSON={artistJSON} />
+                {artistsJSON.map((artistJSON, index) => {
+                    return <ArtistCard artistJSON={artistJSON} key={index}/>
                 })}
             </div>
             <hr />
