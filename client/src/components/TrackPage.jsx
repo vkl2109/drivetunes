@@ -1,8 +1,11 @@
 import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import WaveSurfer from 'wavesurfer.js';
+import '../css/track.css'
 
 const TrackPage = () => {
     const { track } = useParams();
+    const waveformRef = useRef();
     const clientID = import.meta.env.VITE_CLIENT_ID
     const clientSecret = import.meta.env.VITE_CLIENT_SECRET
     const [ currentTrack, setCurrentTrack ] = useState()
@@ -35,14 +38,35 @@ const TrackPage = () => {
             let token = await getAccessToken()
             let trackObj = await getTracks(track, token.access_token);
             console.log(trackObj.tracks.items[0]);
-            setCurrentTrack(currentTrack => trackObj.tracks.items[0])
+            let firstTrack = trackObj.tracks.items[0];
+            setCurrentTrack(currentTrack => firstTrack)
         }
         runFuncs( track )
     }, [])
 
+    if (waveformRef.current) {
+        var wavesurfer = WaveSurfer.create({
+            container: waveformRef.current,
+            barWidth: 3,
+            barRadius: 3,
+            barGap: 2,
+            barMinHeight: 1,
+            cursorWidth: 1,
+            backend: "WebAudio",
+            height: 80,
+            progressColor: "#FE6E00",
+            responsive: true,
+            waveColor: "#C4C4C4",
+            cursorColor: "transparent"
+        });
+        wavesurfer.load(currentTrack.preview_url)
+    }
+
     return (
-        <div>
+        <div className="trackPage">
             {track}
+            <div ref={waveformRef} className="waveform"></div>
+            <button onClick={() => wavesurfer.playPause()}>Play/Pause</button>
         </div>
     )
 }

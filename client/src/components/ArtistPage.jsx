@@ -69,7 +69,7 @@ const ArtistPage = () => {
             <div className="artistTracks">
                 {artistTracks.map((track, index)=>{
                     return(
-                        <div className="trackBlock">
+                        <div className="trackBlock" key={index}>
                              <Link to={`track/${track.name}`} className="trackLink">
                                 {index + 1}. {track.name}
                              </Link>
