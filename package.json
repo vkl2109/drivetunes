@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "gapi-script": "^1.2.0"
+    "gapi-script": "^1.2.0",
+    "react-google-login": "^5.2.2",
+    "wavesurfer.js": "^6.4.0"
   }
 }
