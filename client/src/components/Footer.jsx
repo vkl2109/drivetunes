@@ -30,9 +30,21 @@ const Footer = ({ profile, setProfile }) => {
         navigate("/")
     };
 
+    const getFiles = async (token) => {
+        const result = await fetch ('https://www.googleapis.com/drive/v2/files?key=' + GAPI_key, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + token
+            }
+        })
+        return result.json();
+    }
+
     const onSuccess = (res) => {
         console.log('success:', res);
         setProfile(res.profileObj);
+        getFiles(res.accessToken)
         navigate("/home")
     }
 
