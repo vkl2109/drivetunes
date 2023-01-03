@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import '../css/home.css'
 import ArtistCard from './ArtistCard.jsx'
 
-const Home = ({ profile }) => {
+const Home = ({ profile, gdrive }) => {
     const clientID = import.meta.env.VITE_CLIENT_ID
     const clientSecret = import.meta.env.VITE_CLIENT_SECRET
     
@@ -33,15 +33,28 @@ const Home = ({ profile }) => {
     }
 
     useEffect(() => {
-        const runFuncs = async ( artist ) => {
-            let token = await getAccessToken();
-            let artists = await getArtist(artist, token.access_token);
-            // console.log(artists);
-            setArtistsJSON(artistsJSON => [...artistsJSON, artists.artists.items[0]]);
+        // const runFuncs = async ( artist ) => {
+        //     let token = await getAccessToken();
+        //     let artists = await getArtist(artist, token.access_token);
+        //     // console.log(artists);
+        //     setArtistsJSON(artistsJSON => [...artistsJSON, artists.artists.items[0]]);
+        // }
+        // artists.map(artist => {
+        //     runFuncs(artist)
+        // })
+        const getUser = async () => {
+            let req = await fetch('http://localhost:3000/users/' + gdrive.googleId,
+            {mode: 'cors'})
+            if (req.ok) {
+                let res = await req.json()
+                setArtistsJSON(artistsJSON => res.artists)
+                console.log("artists:" + res.artists)
+            }
+            else {
+                console.log(req.error)
+            }
         }
-        artists.map(artist => {
-            runFuncs(artist)
-        })
+        getUser()
     }, [])
     console.log(artistsJSON)
 
