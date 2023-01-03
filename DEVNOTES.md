@@ -1,12 +1,25 @@
-To install google sign in packages run $npm install --save gapi-script
--should i add this to client/package.json?
+may want to add date created to song migration for sorting purposes.
 
-Google API (gapi) management
-<https://www.npmjs.com/package/gapi-script>
+Google Drive response object
 
-Installed to get login button:
-npm install react-google-login gapi-script
+link to the file or folder
+alternateLink: 
+"https://drive.google.com/drive/folders/1uwGA5u2FnKdXp2fMmLe7YnQsT_ztF3H8"
 
+date created in googleDrive
+createdDate:
+"2023-01-03T15:26:38.618Z"
+
+file extension
+fileExtension: "mp3"
+
+google's id for the file
+id:
+"13QmMG4YIFAI_7X66csVmsXRfgfYIzwT3"
+
+googles name for the file:
+originalFilename:
+"woohoo roses.mp3"
 
 
 ### Schema
