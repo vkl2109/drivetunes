@@ -27,13 +27,6 @@ const GoogleLink = () => {
         console.log('success:', res);
         setProfile(res.profileObj);
         navigate("/home")
-
-        // const stream = getFiles(res.tokenId).body
-        // stream.on('data', (chunk) => {
-        //     console.log(chunk.toString());
-        // })
-
-        // console.log(gapi.client.drive.files.list({}))
     };
 
     function execute() {
