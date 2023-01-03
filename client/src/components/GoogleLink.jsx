@@ -34,8 +34,23 @@ const GoogleLink = () => {
     const onSuccess = (res) => {
         console.log('success:', res);
         setProfile(res.profileObj);
-        console.log(getFiles(res.accessToken))
+
+        // const stream = getFiles(res.tokenId).body
+        // stream.on('data', (chunk) => {
+        //     console.log(chunk.toString());
+        // })
+
+        // console.log(gapi.client.drive.files.list({}))
     };
+
+    function execute() {
+        return gapi.client.drive.files.list({})
+            .then(function (response) {
+                // Handle the results here (response.result has the parsed body).
+                console.log("Response", response);
+            },
+                function (err) { console.error("Execute error", err); });
+    }
 
     const logOut = () => {
         setProfile(null);
