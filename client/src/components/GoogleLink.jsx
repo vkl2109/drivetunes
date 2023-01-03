@@ -7,6 +7,7 @@ const GoogleLink = () => {
     const clientId = '14235695944-9kjep8ne6j4mhjo5518deljkmrfbmgu5.apps.googleusercontent.com';
     const [profile, setProfile] = useState();
     const [ files, setFiles ] = useState([])
+    const GAPI_key = import.meta.env.VITE_GAPI_API_KEY
 
     useEffect(() => {
         const initClient = () => {
@@ -18,25 +19,22 @@ const GoogleLink = () => {
         gapi.load('client:auth2', initClient);
     });
 
-    // const getFiles = async (token) => {
-    //     const result = await fetch ('www.googleapis.com/drive/v2/files', {
-    //         method: 'GET',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             'Authorization': 'Bearer ' + token
-    //         }
-    //     })
-    //     return result;
-    // }
+    const getFiles = async (token) => {
+        const result = await fetch ('https://www.googleapis.com/drive/v2/files?key=' + GAPI_key, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + token
+            }
+        })
+        return result;
+    }
 
     // Define this for a successful login
     const onSuccess = (res) => {
         console.log('success:', res);
         setProfile(res.profileObj);
-        console.log(gapi.client.drive.files.list({
-'mimeType': 'application/vnd.google-apps.folder',
-'q': "mimeType='application/vnd.google-apps.folder' and trashed = false"
-}))
+        console.log(getFiles(res.accessToken))
     };
 
     const logOut = () => {
@@ -49,7 +47,7 @@ const GoogleLink = () => {
     
     return(
         <div>
-            <h2>React Google Login</h2>
+            <h2>Google Login</h2>
             <br />
             <br />
             {profile ? (
