@@ -5,7 +5,8 @@ import { GoogleLogin, GoogleLogout } from 'react-google-login';
 
 const GoogleLink = () => {
     const clientId = '14235695944-9kjep8ne6j4mhjo5518deljkmrfbmgu5.apps.googleusercontent.com';
-    const [profile, setProfile] = useState([]);
+    const [profile, setProfile] = useState();
+    const [ files, setFiles ] = useState([])
 
     useEffect(() => {
         const initClient = () => {
@@ -17,11 +18,25 @@ const GoogleLink = () => {
         gapi.load('client:auth2', initClient);
     });
 
+    // const getFiles = async (token) => {
+    //     const result = await fetch ('www.googleapis.com/drive/v2/files', {
+    //         method: 'GET',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             'Authorization': 'Bearer ' + token
+    //         }
+    //     })
+    //     return result;
+    // }
+
     // Define this for a successful login
     const onSuccess = (res) => {
         console.log('success:', res);
         setProfile(res.profileObj);
-
+        console.log(gapi.client.drive.files.list({
+'mimeType': 'application/vnd.google-apps.folder',
+'q': "mimeType='application/vnd.google-apps.folder' and trashed = false"
+}))
     };
 
     const logOut = () => {
@@ -39,10 +54,15 @@ const GoogleLink = () => {
             <br />
             {profile ? (
                 <div>
-                    <img src={profile.imageUrl} alt="user image" />
+                    {/* <img src={profile.imageUrl} alt="user image" /> */}
                     <h3>User Logged in</h3>
                     <p>Name: {profile.name}</p>
                     <p>Email Address: {profile.email}</p>
+                    {/* <div>{files.map(file => {
+                        return <div> 
+                            {file}
+                        </div>
+                    })}</div> */}
                     <br />
                     <br />
                     <GoogleLogout clientId={clientId} buttonText="Log out" onLogoutSuccess={logOut} />
