@@ -10,7 +10,7 @@ const GoogleLink = () => {
         const initClient = () => {
             gapi.client.init({
                 clientId: clientId,
-                scope: ''
+                scope: 'https://www.googleapis.com/auth/drive'
             });
         };
         gapi.load('client:auth2', initClient);
@@ -19,6 +19,7 @@ const GoogleLink = () => {
     // Define this for a successful login
     const onSuccess = (res) => {
         console.log('success:', res);
+
     };
 
     // Define this
