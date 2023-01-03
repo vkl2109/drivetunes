@@ -2,6 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { gapi } from 'gapi-script';
 import { GoogleLogin } from 'react-google-login';
+import '../css/googleLink.css'
 
 const GoogleLink = () => {
     const navigate = useNavigate()
