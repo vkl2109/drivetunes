@@ -3,3 +3,22 @@
     align-content: center;
     display: flex;
 }
+.Splash {
+    height: 80vh;
+    width: 100vw;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.footerGradient {
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    bottom: 0;
+}
+.splashContent {
+    height: 80%;
+    width: auto;
+    z-index: 1;
+}
