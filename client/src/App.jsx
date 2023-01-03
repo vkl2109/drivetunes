@@ -15,13 +15,14 @@ function App() {
 
   const [profile, setProfile] = useState();
   const [ search, setSearch ] = useState('');
+  const [ gdrive, setGdrive ] = useState();
 
   return (
     <div className="App">
       <BrowserRouter>
         <Header profile={profile} search={search} setSearch={setSearch}/>
         <Routes>
-          <Route path={'/home'} element={<Home profile={profile}/>}/>
+          <Route path={'/home'} element={<Home profile={profile} gdrive={gdrive}/>}/>
           <Route path={'/search'} element={<SearchResults search={search}/>}/>
           <Route path={'/artist/:artist'}>
             <Route index element={<ArtistPage />} />
@@ -30,7 +31,7 @@ function App() {
           <Route path={'/'} element={<GoogleLink />}/>
           <Route path={'/filemanager'} element={<FileManager />}/>
         </Routes>
-        <Footer profile={profile} setProfile={setProfile}/>
+        <Footer profile={profile} setProfile={setProfile} setGdrive={setGdrive}/>
       </BrowserRouter>
     </div>
   )

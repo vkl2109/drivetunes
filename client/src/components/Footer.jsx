@@ -5,7 +5,7 @@ import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { useNavigate } from 'react-router-dom'
 
 
-const Footer = ({ profile, setProfile }) => {
+const Footer = ({ profile, setProfile, setGdrive }) => {
     const navigate = useNavigate()
     const GAPI_key = import.meta.env.VITE_GAPI_API_KEY
     const clientId = import.meta.env.VITE_GAPI_CLIENT_ID
@@ -44,6 +44,8 @@ const Footer = ({ profile, setProfile }) => {
     const onSuccess = (res) => {
         console.log('success:', res);
         setProfile(res.profileObj);
+        setGdrive(gdrive => res)
+        console.log(res.googleId)
         getFiles(res.accessToken)
         navigate("/home")
     }

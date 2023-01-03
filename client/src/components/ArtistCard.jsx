@@ -5,7 +5,7 @@ const ArtistCard = ({ artistJSON }) => {
     return (
         <div className="artistCard">
             <Link to={`/artist/${artistJSON.name.split(' ').join('-')}`}>
-                <img src={artistJSON.images[0].url} alt="no image found" className="artistImg"/>
+                <img src={artistJSON.image} alt="no image found" className="artistImg"/>
             </Link>
             <h4>{artistJSON.name}</h4>
         </div>
