@@ -5,7 +5,7 @@ const Header = () => {
     return (
         <div className="headerContainer">
             <div className="homeLink">
-                <Link to={'/'} className="link-title">
+                <Link to={'/home'} className="link-title">
                     <img className="headerLogo" src="https://github.com/vkl2109/drivetunes/blob/main/dt-logo-large.png?raw=true" />
                 </Link>
             </div>

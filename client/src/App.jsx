@@ -7,24 +7,27 @@ import FileManager from './components/FileManager.jsx'
 import GoogleLink from './components/GoogleLink'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
+import { useState, useEffect } from 'react'
 
 
 function App() {
+
+  const [profile, setProfile] = useState();
 
   return (
     <div className="App">
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path={'/'} element={<Home />}/>
+          <Route path={'/home'} element={<Home />}/>
           <Route path={'/artist/:artist'}>
             <Route index element={<ArtistPage />} />
             <Route path={'track/:track'} element={<TrackPage />} />
           </Route>
-          <Route path={'/googlelink'} element={<GoogleLink />}/>
+          <Route path={'/'} element={<GoogleLink />}/>
           <Route path={'/filemanager'} element={<FileManager />}/>
         </Routes>
-        <Footer />
+        <Footer profile={profile} setProfile={setProfile}/>
       </BrowserRouter>
     </div>
   )

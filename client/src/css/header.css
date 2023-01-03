@@ -15,7 +15,14 @@
     position: absolute;
     bottom: 0;
     justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }
+.login {
+    height: 60%;
+}
+
 .googleSignUpLink{
     color: white;
 
