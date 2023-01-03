@@ -17,7 +17,7 @@ const Header = ({ profile, search, setSearch }) => {
     return (
         <div className="headerContainer">
             <div className="homeLink">
-                <Link to={'/home'} className="link-title">
+                <Link to={profile ? '/home' : '/'} className="link-title">
                     <img className="headerLogo" src="https://github.com/vkl2109/drivetunes/blob/main/dt-logo-large.png?raw=true" />
                 </Link>
             </div>
@@ -26,7 +26,6 @@ const Header = ({ profile, search, setSearch }) => {
                 <button className="searchBtn" type="submit">🔍</button>
             </form>
             {profile ? (<div> <h2>Welcome, {profile.givenName}!</h2> </div>) : (<div> 
-                
             </div>)}
         </div>
     )
