@@ -15,6 +15,7 @@ function App() {
 
   const [profile, setProfile] = useState();
   const [ search, setSearch ] = useState('');
+  const [files, setFiles] = useState([])
 
   return (
     <div className="App">
@@ -28,9 +29,9 @@ function App() {
             <Route path={'track/:track'} element={<TrackPage />} />
           </Route>
           <Route path={'/'} element={<GoogleLink />}/>
-          <Route path={'/filemanager'} element={<FileManager />}/>
+          <Route path={'/filemanager'} element={<FileManager files={files}/>}/>
         </Routes>
-        <Footer profile={profile} setProfile={setProfile}/>
+        <Footer profile={profile} setProfile={setProfile} setFiles={setFiles} />
       </BrowserRouter>
     </div>
   )
