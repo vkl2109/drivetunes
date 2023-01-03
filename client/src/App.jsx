@@ -5,6 +5,7 @@ import ArtistPage from './components/ArtistPage.jsx'
 import TrackPage from './components/TrackPage.jsx'
 import FileManager from './components/FileManager.jsx'
 import GoogleLink from './components/GoogleLink'
+import SearchResults from './components/SearchResults.jsx'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 import { useState, useEffect } from 'react'
@@ -13,13 +14,15 @@ import { useState, useEffect } from 'react'
 function App() {
 
   const [profile, setProfile] = useState();
+  const [ search, setSearch ] = useState('');
 
   return (
     <div className="App">
       <BrowserRouter>
-        <Header />
+        <Header profile={profile} search={search} setSearch={setSearch}/>
         <Routes>
-          <Route path={'/home'} element={<Home />}/>
+          <Route path={'/home'} element={<Home profile={profile}/>}/>
+          <Route path={'/search'} element={<SearchResults search={search}/>}/>
           <Route path={'/artist/:artist'}>
             <Route index element={<ArtistPage />} />
             <Route path={'track/:track'} element={<TrackPage />} />
