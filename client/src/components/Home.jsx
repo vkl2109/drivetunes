@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import '../css/home.css'
 import ArtistCard from './ArtistCard.jsx'
 
-const Home = () => {
+const Home = ({ profile }) => {
     const clientID = import.meta.env.VITE_CLIENT_ID
     const clientSecret = import.meta.env.VITE_CLIENT_SECRET
     
@@ -48,7 +48,7 @@ const Home = () => {
     return (
         <div className="homePage">
             <div className="titleBar">
-                <h1>Artists:</h1>
+                <h1>Your Favorite Artists:</h1>
             </div>
             <div className="artistsCarousel">
                 {artistsJSON.map((artistJSON, index) => {
