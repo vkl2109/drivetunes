@@ -18,26 +18,38 @@ const GoogleLink = () => {
         gapi.load('client:auth2', initClient);
     });
 
-    // const getFiles = async (token) => {
-    //     const result = await fetch ('www.googleapis.com/drive/v2/files', {
-    //         method: 'GET',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             'Authorization': 'Bearer ' + token
-    //         }
-    //     })
-    //     return result;
-    // }
+    const getFiles = async (token) => {
+        const result = await fetch ('www.googleapis.com/drive/v2/files', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            }
+        })
+        return result;
+    }
 
     // Define this for a successful login
     const onSuccess = (res) => {
         console.log('success:', res);
         setProfile(res.profileObj);
-        console.log(gapi.client.drive.files.list({
-'mimeType': 'application/vnd.google-apps.folder',
-'q': "mimeType='application/vnd.google-apps.folder' and trashed = false"
-}))
+
+        // const stream = getFiles(res.tokenId).body
+        // stream.on('data', (chunk) => {
+        //     console.log(chunk.toString());
+        // })
+
+        // console.log(gapi.client.drive.files.list({}))
     };
+
+    function execute() {
+        return gapi.client.drive.files.list({})
+            .then(function (response) {
+                // Handle the results here (response.result has the parsed body).
+                console.log("Response", response);
+            },
+                function (err) { console.error("Execute error", err); });
+    }
 
     const logOut = () => {
         setProfile(null);
