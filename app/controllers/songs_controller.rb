@@ -20,7 +20,7 @@ class SongsController < ApplicationController
 
     def create
         album = Album.find_by!(name: 'Unknown Album')
-        song = Song.create(name: params[:name], audio: params[:audio], image: params[:image], file_id: params[:file_id], date_created: params[:date_created], album_id: album.id)
+        song = Song.create(name: params[:song], audio: params[:audio], image: params[:image], file_id: params[:file_id], date_created: params[:date_created], album_id: album.id)
     end
 
     private
