@@ -26,6 +26,7 @@ const FileManager = () => {
 
     return (
         <div>
+            <h1>Manage Files</h1>
             <Table songs={songs} setSongs={setSongs} isCheck={isCheck} setIsCheck={setIsCheck} />
         </div>
     )
