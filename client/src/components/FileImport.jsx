@@ -51,8 +51,7 @@ const FileImport = ({files, setFiles}) => {
         })
 
         // route to library page
-        // navigate('/fileManager')
-    
+        navigate('/fileManager')
 }
 
     return(

@@ -9,12 +9,15 @@ const FileManager = () => {
         getSongs()
     }, [])
     
-    // fetch for all songs
     const getSongs = async () =>{
         let req = await fetch(
-
+            `http://localhost:3000/songs/`,
+            {
+                method: 'GET',
+                headers: { "Content-Type": "application/json" },
+            }
         )
-        let res = await req.json
+        let res = await req.json()
         setSongs(res)
     }
 
@@ -30,11 +33,30 @@ const FileManager = () => {
 
     return (
         <div>
-            {songs.map(file=>{
-                <Checkbox key={file.id} type="checkbox" name={file.originalName} id={file.id} handleClick={handleClick} isChecked={isCheck.includes(file.id)} />
-                //<table row>
-            })}
+            <ol>
+                {
+                    songs.map((file) => {
+                        if (file.fileExtension === "mp3" || file.fileExtension === "wav" || file.fileExtension === "m4a") {
+                            return (
+                                <li>
+                                    <Checkbox key={file.id} type="checkbox" name={file.originalName} id={file.id} handleClick={handleClick} isChecked={isCheck.includes(file.id)} />
+                                    {file.originalFilename.slice(0, -4)}
+                                    {/* <ListedFile file={file}/> */}
+                                </li>
+                            )
+                        }
+
+                    })
+                }
+            </ol>
         </div>
+        // <div>
+        //     {songs.map(file=>{
+        //         <Checkbox key={file.id} type="checkbox" name={file.originalName} id={file.id} handleClick={handleClick} isChecked={isCheck.includes(file.id)} />
+        //         //<table row>
+        //     })}
+            
+        // </div>
     )
 }
 
