@@ -4,23 +4,27 @@ class SongsController < ApplicationController
     end
     
     def show
-        song = Song.find_by!(name: params[:song])
+        newSong = params[:song].split('-').join(' ')
+        song = Song.find_by!(name: newSong)
         render json: song
     end
 
     def update
-        song = Song.find_by!(name: params[:song])
+        newSong = params[:song].split('-').join(' ')
+        song = Song.find_by!(name: newSong)
         song.update!(valid_song_params)
     end
 
     def destroy
-        song = User.find_by!(name: params[:song])
+        newSong = params[:song].split('-').join(' ')
+        song = User.find_by!(name: newSong)
         song.destroy
     end
 
     def create
+        newSong = params[:song].split('-').join(' ')
         album = Album.find_by!(name: 'Unknown Album')
-        song = Song.create(name: params[:song], audio: params[:audio], image: params[:image], file_id: params[:file_id], date_created: params[:date_created], album_id: album.id)
+        song = Song.create(name: newSong, audio: params[:audio], image: params[:image], file_id: params[:file_id], date_created: params[:date_created], album_id: album.id)
     end
 
     private

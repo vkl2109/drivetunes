@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import Checkbox from './Checkbox.jsx'
+import '../css/file.css'
 
 const FileManager = () => {
     const [songs, setSongs] = useState([])
@@ -33,7 +34,7 @@ const FileManager = () => {
     };
 
     return (
-        <div>
+        <div className="fileImportPage">
             <ol>
                 {
                     songs.map((file) => {

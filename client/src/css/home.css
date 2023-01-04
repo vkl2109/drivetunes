@@ -1,39 +1,66 @@
 .homePage {
     height: 80vh;
     width: 100vw;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }
 .artistsCarousel {
-    width: 100vw;
+    min-width: 30%;
     height: 30vh;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.favoriteArtists {
+    border: 1px solid lightgrey;
+    border-radius: 1vh;
+    margin: 1vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h1, h2, h3, h4 {
+    margin: 0;
+    padding: 0;
 }
 .artistCard {
-    height: 100%;
+    height: 80%;
     width: 20vw;
     background: white;
-    /* border: 1px solid black; */
-    border-radius: 20px;
+    border: 1px solid lightgrey;
+    border-radius: 1vh;
+    margin: 2%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 .artistImg {
-    height: 20vh;
-    width: 20vh;
+    height: 10vh;
+    width: 10vh;
     border-radius: 1000px;
     transition: 0.2s ease-in-out;
 }
 .artistImg:hover {
     transform: scale(1.1);
 }
+.artistLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .titleBar {
-    height: 10vh;
-    width: 60%;
-    text-align: left;
-    margin-left: 10vh;
-
+    height: 10%;
+    width: 96%;
+    margin-left: 4%;
+    margin-top: 4%;
+    padding: 0;
+    display: flex;
+    justify-content: left;
+    align-items: center;
 }
 .titleBar h1{
     width: 50%;

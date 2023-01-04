@@ -2,6 +2,7 @@ import ListedFile from './ListedFile.jsx'
 import Checkbox from './Checkbox.jsx'
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react'
+import '../css/file.css'
 
 const FileImport = ({files, setFiles}) => {
     const [isCheckAll, setIsCheckAll] = useState(false)
@@ -55,7 +56,7 @@ const FileImport = ({files, setFiles}) => {
 }
 
     return(
-        <div>
+        <div className="fileImportPage">
             <div>
                 <button onClick={()=>{handleSubmit()}}>Add to library</button>
                 <Checkbox

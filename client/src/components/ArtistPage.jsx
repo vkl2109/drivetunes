@@ -79,7 +79,7 @@ const ArtistPage = () => {
     return (
         <div className="artistPage">
             <div className="artistTitle">
-                <img src={artistImg} alt="no image found" className="artistImg"/>
+                <img src={artistImg} alt="no image found" className="artistPageImg"/>
                 <h1>{ artistName }</h1>
             </div>
             {/* <div className="artistTracks">
