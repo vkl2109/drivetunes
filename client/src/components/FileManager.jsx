@@ -18,6 +18,7 @@ const FileManager = () => {
             }
         )
         let res = await req.json()
+        console.log(res)
         setSongs(res)
     }
 
@@ -36,16 +37,13 @@ const FileManager = () => {
             <ol>
                 {
                     songs.map((file) => {
-                        if (file.fileExtension === "mp3" || file.fileExtension === "wav" || file.fileExtension === "m4a") {
-                            return (
-                                <li>
-                                    <Checkbox key={file.id} type="checkbox" name={file.originalName} id={file.id} handleClick={handleClick} isChecked={isCheck.includes(file.id)} />
-                                    {file.originalFilename.slice(0, -4)}
-                                    {/* <ListedFile file={file}/> */}
-                                </li>
-                            )
-                        }
-
+                        return (
+                            <li>
+                                <Checkbox key={file.id} type="checkbox" name={file.originalName} id={file.id} handleClick={handleClick} isChecked={isCheck.includes(file.id)} />
+                                {file.name}
+                                {/* <ListedFile file={file}/> */}
+                            </li>
+                        )
                     })
                 }
             </ol>
