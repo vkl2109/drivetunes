@@ -1,8 +1,24 @@
 import Checkbox from './Checkbox.jsx'
 import { useState } from 'react'
 
+const reformatDate = (oldDate) => {
+    let date = new Date(oldDate);
+
+    const options = {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: true
+    };
+
+    let reformattedDate = date.toLocaleString('en-US', options);
+
+    return reformattedDate;
+}
+
 const Table = ({songs, setSongs, isCheck, setIsCheck}) => {    
-    const [isCheck, setIsCheck] = useState([])
     
     // selecting songs with checkbox
     const handleClick = e => {
@@ -29,23 +45,6 @@ const Table = ({songs, setSongs, isCheck, setIsCheck}) => {
 
 
         setSongs(sortedSongs)
-    }
-    
-    const reformatDate = (oldDate) => {
-        let date = new Date(oldDate);
-
-        const options = {
-            month: 'short',
-            day: 'numeric',
-            year: 'numeric',
-            hour: 'numeric',
-            minute: 'numeric',
-            hour12: true
-        };
-
-        let reformattedDate = date.toLocaleString('en-US', options);
-
-        return reformattedDate;
     }
 
     return(

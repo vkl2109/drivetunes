@@ -2,6 +2,7 @@ import ListedFile from './ListedFile.jsx'
 import Checkbox from './Checkbox.jsx'
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react'
+import reformatDate from './Table.jsx'
 import '../css/file.css'
 
 const FileImport = ({files, setFiles}) => {
@@ -54,6 +55,22 @@ const FileImport = ({files, setFiles}) => {
         // route to library page
         navigate('/fileManager')
 }
+    const reformatDate = (oldDate) => {
+        let date = new Date(oldDate);
+
+        const options = {
+            month: 'short',
+            day: 'numeric',
+            year: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric',
+            hour12: true
+        };
+
+        let reformattedDate = date.toLocaleString('en-US', options);
+
+        return reformattedDate;
+    }
 
     return(
         <div className="fileImportPage">
@@ -65,29 +82,38 @@ const FileImport = ({files, setFiles}) => {
                     name="selectAll"
                     id="selectAll"
                     handleClick={handleSelectAll}
-                    isChecked={isCheckAll}
-                />
+                    isChecked={isCheckAll}/>
                 Select All
             </div>
-            <ol>
-
-                {
-                    files.items.map((file)=>{
+            < table >
+                <thead>
+                    <tr className="TableHeader">
+                        <th onClick={() => onSort('name')}>Select</th>
+                        <th onClick={() => onSort('name')}>Song Name</th>
+                        <th onClick={() => onSort('date_created')}>Date Created</th>
+                    </tr>
+                </thead>
+                <tbody>
+    
+                {files.items.map((file)=>{
                         if (file.fileExtension === "mp3" || file.fileExtension === "wav" || file.fileExtension === "m4a"  ) {
                             return (
-                                <li>
+                            <tr key={file.id}>
                                 <Checkbox key={file.id} type="checkbox" name={file.originalName} id={file.id} handleClick={handleClick} isChecked={isCheck.includes(file.id)} />
-                                {file.originalFilename.slice(0, -4)}
-                                {/* <ListedFile file={file}/> */}
-                                </li>
+
+                                <td>{file.originalFilename.slice(0, -4)}</td>
+                                <td>{reformatDate(file.createdDate)}</td>
+                            </tr>
                             )
                         }
-                        
                     })
                 }
-            </ol>
+                </tbody>
+            </table >
         </div>
-    )
+
+)
 }
+
 
 export default FileImport
