@@ -31,7 +31,7 @@ function App() {
           </Route>
           <Route path={'/'} element={<GoogleLink />}/>
           <Route path={'/fileImport'} element={<FileImport files={files} setFiles={setFiles} />}/>
-          <Route path={'./FileManager'} element={<FileManager />} />
+          <Route path={'/fileManager'} element={<FileManager />} />
         </Routes>
         <Footer profile={profile} setProfile={setProfile} setGdrive={setGdrive} setFiles={setFiles}/>
       </BrowserRouter>
