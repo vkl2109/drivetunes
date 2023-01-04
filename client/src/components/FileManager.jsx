@@ -3,7 +3,7 @@ import WaveSurfer from 'wavesurfer.js';
 import '../css/track.css'
 
 const FileManager = () => {
-
+    const GAPI_key = import.meta.env.VITE_GAPI_API_KEY
     const waveformRef = useRef();
     const [currentTrack, setCurrentTrack] = useState()
 
@@ -23,12 +23,12 @@ const FileManager = () => {
             cursorColor: "transparent"
         });
         // below is the downloadUrl from google, which seems to be closest to working. Error is The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://goo.gl/7K7WLu
-        wavesurfer.load("https://www.googleapis.com/drive/v2/files/1Pi7K0By1_S2Sl_C2OSBmYDY0llzS1Yz0?key=AIzaSyC9SXaSOhX3MXTIm5LrGTAFLPWBUmb7wmE&alt=media&source=downloadUrl")
+        wavesurfer.load(`https://www.googleapis.com/drive/v2/files/1Pi7K0By1_S2Sl_C2OSBmYDY0llzS1Yz0?key=${GAPI_key}&alt=media&source=downloadUrl`)
     }
 
     return (
         <div className="trackPage">
-            https://drive.google.com/drive/folders/1z1re6Apde7Gq5eA4sXd-ezDxvMmuisEh
+            
             <div ref={waveformRef} className="waveform"></div>
             <button onClick={() => wavesurfer.playPause()}>Play/Pause</button>
         </div>
