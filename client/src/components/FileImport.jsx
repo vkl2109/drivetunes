@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react'
 const FileImport = ({files, setFiles}) => {
     const [isCheckAll, setIsCheckAll] = useState(false)
     const [isCheck, setIsCheck] = useState([])
-    console.log(files.items)
+    // console.log(files.items)
     const navigate = useNavigate()
         
     const handleSelectAll = e => {
@@ -18,7 +18,6 @@ const FileImport = ({files, setFiles}) => {
     };
 
     const handleClick = e => {
-        console.log(e.target)
         const { id, checked } = e.target;
         setIsCheck([...isCheck, id]);
         if (!checked) {
@@ -26,22 +25,32 @@ const FileImport = ({files, setFiles}) => {
         }
     };
 
-    const handleSubmit = e => {
-        return
-        // const postItem = async (file) =>{
-        //     let req = await fetch(
+    const handleSubmit = () => {
+        
+        const postItem = async (file) =>{
+            let fileName = file.originalFilename.slice(0, -4).split(' ').join('-')
+            let req = await fetch(
+                `http://localhost:3000/songs/${fileName}`,
+                {
+                    method: 'POST',
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({
+                        audio: file.embedLink,
+                        file_id: file.id,
+                        date_created: file.createdDate
+                    })
+                }
+            )
+        }
+        // map with post request
+        files.items.map( async (file)=>{
+            if(isCheck.includes(file.id)){
+                // console.log(file.originalFilename)
+                await postItem(file)
+            }
+        })
 
-        //     )
-
-        // }
-        // // map with post request
-        // files.items.map((file)=>{
-        //     if(isCheck.includes(file.id)){
-        //         postItem(file)
-        //     }
-        // })
-
-        // // route to library page
+        // route to library page
         // navigate('/fileManager')
     
 }
