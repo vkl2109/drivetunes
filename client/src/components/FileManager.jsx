@@ -6,10 +6,7 @@ const FileManager = ({files, setFiles}) => {
     const [isCheckAll, setIsCheckAll] = useState(true)
     const [isCheck, setIsCheck] = useState([])
     console.log(files.items)
-    
-        //dont think this is needed
-        // useEffect(()=>{setFiles(files)},[files])
-    
+        
     const handleSelectAll = e => {
         setIsCheckAll(!isCheckAll);
         setIsCheck(files.items.map(li => li.id));
@@ -18,7 +15,6 @@ const FileManager = ({files, setFiles}) => {
         }
     };
 
-    //confused on this one
     const handleClick = e => {
         console.log(e.target)
         const { id, checked } = e.target;
@@ -27,7 +23,6 @@ const FileManager = ({files, setFiles}) => {
             setIsCheck(isCheck.filter(item => item !== id));
         }
     };
-
 
     return(
         <div>

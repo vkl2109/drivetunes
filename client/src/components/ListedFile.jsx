@@ -4,7 +4,6 @@ const ListedFile = ({ file, isChecked, setIsChecked }) => {
 
     return(
         <li>
-          {/* <input type="checkbox" handleClick = {()=>{handleClick()}} /> */}
           {trackName}
         </li>
     )
