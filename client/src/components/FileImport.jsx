@@ -27,11 +27,24 @@ const FileImport = ({files, setFiles}) => {
     };
 
     const handleSubmit = e => {
-        // map with post request
+        return
+        // const postItem = async (file) =>{
+        //     let req = await fetch(
 
-        // route to library page
-        navigate('/fileManager')
-    }
+        //     )
+
+        // }
+        // // map with post request
+        // files.items.map((file)=>{
+        //     if(isCheck.includes(file.id)){
+        //         postItem(file)
+        //     }
+        // })
+
+        // // route to library page
+        // navigate('/fileManager')
+    
+}
 
     return(
         <div>

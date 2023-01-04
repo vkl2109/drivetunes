@@ -21,6 +21,10 @@ googles name for the file:
 originalFilename:
 "woohoo roses.mp3"
 
+downloadUrl:"https://www.googleapis.com/drive/v2/files/1Pi7K0By1_S2Sl_C2OSBmYDY0llzS1Yz0?key=AIzaSyC9SXaSOhX3MXTIm5LrGTAFLPWBUmb7wmE&alt=media&source=downloadUrl"
+
+embedLink: "https://drive.google.com/file/d/1Pi7K0By1_S2Sl_C2OSBmYDY0llzS1Yz0/preview?usp=drivesdk"
+
 
 ### Schema
 
