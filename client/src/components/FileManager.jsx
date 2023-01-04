@@ -1,36 +1,39 @@
 import { useState, useEffect, useRef } from 'react';
-import WaveSurfer from 'wavesurfer.js';
-import '../css/track.css'
+import Checkbox from './Checkbox.jsx'
 
 const FileManager = () => {
+    const [songs, setSongs] = useState([])
+    const [isCheck, setIsCheck] = useState([])
 
-    const waveformRef = useRef();
-    const [currentTrack, setCurrentTrack] = useState()
+    useEffect(() => {
+        getSongs()
+    }, [])
+    
+    // fetch for all songs
+    const getSongs = async () =>{
+        let req = await fetch(
 
-    if (waveformRef.current) {
-        var wavesurfer = WaveSurfer.create({
-            container: waveformRef.current,
-            barWidth: 3,
-            barRadius: 3,
-            barGap: 2,
-            barMinHeight: 1,
-            cursorWidth: 1,
-            backend: "WebAudio",
-            height: 80,
-            progressColor: "#FE6E00",
-            responsive: true,
-            waveColor: "#C4C4C4",
-            cursorColor: "transparent"
-        });
-        // below is the downloadUrl from google, which seems to be closest to working. Error is The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://goo.gl/7K7WLu
-        wavesurfer.load("https://www.googleapis.com/drive/v2/files/1Pi7K0By1_S2Sl_C2OSBmYDY0llzS1Yz0?key=AIzaSyC9SXaSOhX3MXTIm5LrGTAFLPWBUmb7wmE&alt=media&source=downloadUrl")
+        )
+        let res = await req.json
+        setSongs(res)
     }
 
+    // selecting songs with checkbox
+    const handleClick = e => {
+        console.log(e.target)
+        const { id, checked } = e.target;
+        setIsCheck([...isCheck, id]);
+        if (!checked) {
+            setIsCheck(isCheck.filter(item => item !== id));
+        }
+    };
+
     return (
-        <div className="trackPage">
-            https://drive.google.com/drive/folders/1z1re6Apde7Gq5eA4sXd-ezDxvMmuisEh
-            <div ref={waveformRef} className="waveform"></div>
-            <button onClick={() => wavesurfer.playPause()}>Play/Pause</button>
+        <div>
+            {songs.map(file=>{
+                <Checkbox key={file.id} type="checkbox" name={file.originalName} id={file.id} handleClick={handleClick} isChecked={isCheck.includes(file.id)} />
+                //<table row>
+            })}
         </div>
     )
 }
