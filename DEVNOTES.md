@@ -1,6 +1,8 @@
-may want to add date created to song migration for sorting purposes.
 
-Google Drive response object
+
+________________________
+
+Google Drive response object:
 
 link to the file or folder
 alternateLink: 
@@ -25,7 +27,31 @@ downloadUrl:"https://www.googleapis.com/drive/v2/files/1Pi7K0By1_S2Sl_C2OSBmYDY0
 
 embedLink: "https://drive.google.com/file/d/1Pi7K0By1_S2Sl_C2OSBmYDY0llzS1Yz0/preview?usp=drivesdk"
 
+__________________________________
 
+## Post request
+
+
+default artist_id: 
+default album_id: 
+default album_order: null
+audio: downloadUrl
+name: originalFilename
+date_created: createdDate
+user_id: 
+
+## Patch Request
+
+# Existing album Exisitng Artist
+Song album_id:
+# New Album Existing Artist
+album = Album.create(name)
+Song album_id(album.id)
+# New album New Artist
+artist = Artist.create(artist_name)
+album = Album.create(artist_id: artist.id)
+Song album_id(album.id)
+__________________________________
 ### Schema
 
 # User.rb
