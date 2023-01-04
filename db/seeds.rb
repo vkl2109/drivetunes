@@ -15,7 +15,9 @@ user1 = User.create(name: "Drive Tunes", email: "drivetunes2023@gmail.com", goog
 
 artist1 = Artist.create(name: "The Beatles", user_id: user1.id)
 artist2 = Artist.create(name: "Cannonball Adderley", image: "https://i.scdn.co/image/c9ac5f2db563d4c6635882e09ab6373b871a7c7a", user_id: user1.id)
+unknownArtist = Artist.create(name: 'Unknown Artist', user_id: user1.id)
 
 album1 = Album.create(name: "Abbey Road", artist_id: artist1.id)
+unknownAlbum = Album.create(name: 'Unknown Album', artist_id: unknownArtist.id)
 
 song1 = Song.create(name: "Here Comes the Sun", album_order: 1, album_id: album1.id, audio: "https://p.scdn.co/mp3-preview/54cc460f2c430b83b018f540c8a8c33539c1c393?cid=ba90c62fa82b413bb4e3e0d879afdd65")
