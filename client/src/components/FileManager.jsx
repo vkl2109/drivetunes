@@ -24,8 +24,6 @@ const FileManager = () => {
         setSongs(res)
     }
 
-    
-
     return (
         <div className="fileImportPage">
             <h1>Manage Files</h1>

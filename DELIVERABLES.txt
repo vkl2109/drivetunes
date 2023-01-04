@@ -1,0 +1,30 @@
+    IMPORT FILES 
+Make into sortable table with date and name 
+
+Reformat date 
+
+filter out files that are already in database 
+-fetch all songs
+-filter out songs with matching ids 
+
+use different fetch request to only get audio files instead of all files 
+
+figure out how to get more than 100 files in response
+
+put google fetch in FileImport.jsx
+-store client key in database
+
+
+    FILE MANAGER 
+Get checkboxes working
+
+Create forms for song album and artist change
+
+
+
+
+
+
+
+
+

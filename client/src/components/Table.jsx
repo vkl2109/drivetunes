@@ -2,11 +2,11 @@ import Checkbox from './Checkbox.jsx'
 import { useState } from 'react'
 
 const Table = ({songs, setSongs, isCheck, setIsCheck}) => {    
-    
+    const [isCheck, setIsCheck] = useState([])
     
     // selecting songs with checkbox
     const handleClick = e => {
-        console.log(e.target)
+        // console.log(e.target)
         const { id, checked } = e.target;
         setIsCheck([...isCheck, id]);
         if (!checked) {
@@ -30,27 +30,44 @@ const Table = ({songs, setSongs, isCheck, setIsCheck}) => {
 
         setSongs(sortedSongs)
     }
-console.log(songs)
+    
+    const reformatDate = (oldDate) => {
+        let date = new Date(oldDate);
+
+        const options = {
+            month: 'short',
+            day: 'numeric',
+            year: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric',
+            hour12: true
+        };
+
+        let reformattedDate = date.toLocaleString('en-US', options);
+
+        return reformattedDate;
+    }
 
     return(
         <table>
             <thead>
-                <tr>
+                <tr className="TableHeader">
                     <th onClick={() => onSort('name')}>Select</th>
                     <th onClick={() => onSort('name')}>Song Name</th>
-                    <th onClick={() => onSort('date_created')}>Date Created</th>
                     <th onClick={() => onSort('')}>Album</th>
                     <th onClick={() => onSort('')}>Artist</th>
+                    <th onClick={() => onSort('date_created')}>Date Created</th>
                 </tr>
             </thead>
             <tbody>
+            {/* <hr></hr> */}
                 {songs.map(item => (
                     <tr key={item.song.id}>
                         <Checkbox key={item.song.id} type="checkbox" name={item.song.originalName} id={item.song.id} handleClick={handleClick} isChecked={isCheck.includes(item.song.id)} />
                         <td>{item.song.name}</td>
-                        <td>{item.song.date_created}</td>
                         <td>{item.album}</td>
                         <td>{item.artist}</td>
+                        <td>{reformatDate(item.song.date_created)}</td>
                     </tr>
                 ))}
             </tbody>
