@@ -11,12 +11,12 @@ class UsersController < ApplicationController
 
     def update
         user = User.find_by!(name: params[:name])
-        name.update!(valid_user_params)
+        user.update!(valid_user_params)
     end
 
     def destroy
         user = User.find_by!(name: params[:name])
-        name.destroy
+        user.destroy
     end
 
     private

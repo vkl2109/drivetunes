@@ -34,3 +34,25 @@
     text-decoration: none;
     color: black;
 }
+.albumCard {
+    height: 100%;
+    width: 20vw;
+    background: white;
+    /* border: 1px solid black; */
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.albumImg {
+    height: 20vh;
+    width: 20vh;
+    border-radius: 1000px;
+    transition: 0.2s ease-in-out;
+}
+
+.albumImg:hover {
+    transform: scale(1.1);
+}

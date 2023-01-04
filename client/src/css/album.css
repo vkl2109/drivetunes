@@ -1,0 +1,39 @@
+.albumPage {
+    height: 80vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.trackLink {
+    text-decoration: none;
+    color: black;
+}
+
+.albumTitle {
+    height: 20vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.albumImg {
+    height: 15vh;
+    width: 15vh;
+    border-radius: 1000px;
+    margin: 5vh;
+}
+.songList {
+    height: 60vh;
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+}
+.trackBlock {
+    height: 10%;
+    width: 100%;
+}

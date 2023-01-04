@@ -2,6 +2,7 @@ import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
 import Home from './components/Home.jsx'
 import ArtistPage from './components/ArtistPage.jsx'
+import AlbumPage from './components/AlbumPage.jsx'
 import TrackPage from './components/TrackPage.jsx'
 import FileManager from './components/FileManager.jsx'
 import GoogleLink from './components/GoogleLink'
@@ -27,7 +28,10 @@ function App() {
           <Route path={'/search'} element={<SearchResults search={search}/>}/>
           <Route path={'/artist/:artist'}>
             <Route index element={<ArtistPage />} />
-            <Route path={'track/:track'} element={<TrackPage />} />
+            <Route path={'album/:album'}>
+              <Route index element={<AlbumPage />} />
+              <Route path={'track/:track'} element={<TrackPage />} />
+            </Route>
           </Route>
           <Route path={'/'} element={<GoogleLink />}/>
           <Route path={'/filemanager'} element={<FileManager files={files} setFiles={setFiles} />}/>
