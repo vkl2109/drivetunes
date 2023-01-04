@@ -7,7 +7,7 @@ import '../css/file.css'
 const FileImport = ({files, setFiles}) => {
     const [isCheckAll, setIsCheckAll] = useState(false)
     const [isCheck, setIsCheck] = useState([])
-    // console.log(files.items)
+    console.log(files.items)
     const navigate = useNavigate()
         
     const handleSelectAll = e => {
@@ -57,6 +57,7 @@ const FileImport = ({files, setFiles}) => {
 
     return(
         <div className="fileImportPage">
+            <h1>Import Files</h1>
             <div>
                 <button onClick={()=>{handleSubmit()}}>Add to library</button>
                 <Checkbox

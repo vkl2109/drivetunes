@@ -25,8 +25,12 @@ const Header = ({ profile, search, setSearch }) => {
                 <input className="searchInput" type="text" placeholder="Search..." value={input} onChange={(e)=>setInput(e.target.value)}/>
                 <button className="searchBtn" type="submit">🔍</button>
             </form>
-            {profile ? (<div onClick={()=>{navigate('/fileImport')}}> <h2>Welcome, {profile.givenName}!</h2> </div>) : (<div> 
-            </div>)}
+            {profile ? (
+                <div>
+                    <h2 onClick={()=>{navigate('/fileManager')}}>Welcome {profile.givenName}!</h2>
+                    <div onClick={()=>{navigate('/fileImport')}}>Import Files</div>
+                </div>
+            ) : (<div> </div>)}
         </div>
     )
 }

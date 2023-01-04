@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import Table from './Table.jsx'
 import Checkbox from './Checkbox.jsx'
 import '../css/file.css'
 
@@ -23,39 +24,13 @@ const FileManager = () => {
         setSongs(res)
     }
 
-    // selecting songs with checkbox
-    const handleClick = e => {
-        console.log(e.target)
-        const { id, checked } = e.target;
-        setIsCheck([...isCheck, id]);
-        if (!checked) {
-            setIsCheck(isCheck.filter(item => item !== id));
-        }
-    };
+    
 
     return (
         <div className="fileImportPage">
-            <ol>
-                {
-                    songs.map((file) => {
-                        return (
-                            <li>
-                                <Checkbox key={file.id} type="checkbox" name={file.originalName} id={file.id} handleClick={handleClick} isChecked={isCheck.includes(file.id)} />
-                                {file.name}
-                                {/* <ListedFile file={file}/> */}
-                            </li>
-                        )
-                    })
-                }
-            </ol>
+            <h1>Manage Files</h1>
+            <Table songs={songs} setSongs={setSongs} isCheck={isCheck} setIsCheck={setIsCheck} />
         </div>
-        // <div>
-        //     {songs.map(file=>{
-        //         <Checkbox key={file.id} type="checkbox" name={file.originalName} id={file.id} handleClick={handleClick} isChecked={isCheck.includes(file.id)} />
-        //         //<table row>
-        //     })}
-            
-        // </div>
     )
 }
 
