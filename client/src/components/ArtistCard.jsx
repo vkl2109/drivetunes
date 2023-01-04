@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const ArtistCard = ({ artistJSON }) => {
     return (
         <div className="artistCard">
-            <Link to={`/artist/${artistJSON.name.split(' ').join('-')}`}>
+            <Link to={`/artist/${artistJSON.name.split(' ').join('-')}`} className="artistLink">
                 <img src={artistJSON.image} alt="no image found" className="artistImg"/>
             </Link>
             <h4>{artistJSON.name}</h4>
