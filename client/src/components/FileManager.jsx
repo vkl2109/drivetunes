@@ -38,7 +38,7 @@ const FileManager = () => {
                 {
                     songs.map((file) => {
                         return (
-                            <li>
+                            <li key={file.id}>
                                 <Checkbox key={file.id} type="checkbox" name={file.originalName} id={file.id} handleClick={handleClick} isChecked={isCheck.includes(file.id)} />
                                 {file.name}
                                 {/* <ListedFile file={file}/> */}
