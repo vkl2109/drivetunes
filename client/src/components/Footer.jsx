@@ -4,7 +4,6 @@ import { useState, useEffect } from "react"
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { useNavigate } from 'react-router-dom'
 
-
 const Footer = ({ profile, setProfile, setFiles, setGdrive }) => {
     const navigate = useNavigate()
     const GAPI_key = import.meta.env.VITE_GAPI_API_KEY
@@ -20,7 +19,6 @@ const Footer = ({ profile, setProfile, setFiles, setGdrive }) => {
         gapi.load('client:auth2', initClient);
     }, []);
 
-    // Define this
     const onFailure = (err) => {
         console.log('failed:', err);
     }
