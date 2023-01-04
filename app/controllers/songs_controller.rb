@@ -4,7 +4,7 @@ class SongsController < ApplicationController
     end
     
     def show
-        song = Song.find_by!(google_id: params[:song])
+        song = Song.find_by!(name: params[:song])
         render json: song
     end
 
