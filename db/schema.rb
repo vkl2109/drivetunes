@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2023_01_03_213323) do
   end
 
   create_table "albums", force: :cascade do |t|
-    t.string "name"
+    t.string "name", default: "Unknown Album"
     t.string "image", default: "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/e7981d38-6ee3-496d-a6c0-8710745bdbfc/db6zlbs-68b8cd4f-bf6b-4d39-b9a7-7475cade812f.png"
     t.integer "artist_id"
     t.datetime "created_at", precision: 6, null: false
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2023_01_03_213323) do
   end
 
   create_table "artists", force: :cascade do |t|
-    t.string "name"
+    t.string "name", default: "Unknown Artist"
     t.string "image", default: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
@@ -48,6 +48,9 @@ ActiveRecord::Schema.define(version: 2023_01_03_213323) do
     t.integer "album_order"
     t.string "audio"
     t.string "name"
+    t.string "image"
+    t.string "file_id"
+    t.string "date_created"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
