@@ -54,7 +54,7 @@ const Home = ({ profile, gdrive }) => {
                 console.log(req.error)
             }
         }
-        // getUser()
+        getUser()
     }, [])
     console.log(artistsJSON)
 

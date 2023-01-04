@@ -3,13 +3,13 @@ import Footer from './components/Footer.jsx'
 import Home from './components/Home.jsx'
 import ArtistPage from './components/ArtistPage.jsx'
 import TrackPage from './components/TrackPage.jsx'
+import FileImport from './components/FileImport.jsx'
 import FileManager from './components/FileManager.jsx'
 import GoogleLink from './components/GoogleLink'
 import SearchResults from './components/SearchResults.jsx'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 import { useState, useEffect } from 'react'
-
 
 function App() {
 
@@ -30,7 +30,8 @@ function App() {
             <Route path={'track/:track'} element={<TrackPage />} />
           </Route>
           <Route path={'/'} element={<GoogleLink />}/>
-          <Route path={'/filemanager'} element={<FileManager files={files} setFiles={setFiles} />}/>
+          <Route path={'/fileImport'} element={<FileImport files={files} setFiles={setFiles} />}/>
+          <Route path={'./FileManager'} element={<FileManager />} />
         </Routes>
         <Footer profile={profile} setProfile={setProfile} setGdrive={setGdrive} setFiles={setFiles}/>
       </BrowserRouter>
