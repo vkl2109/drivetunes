@@ -7,42 +7,55 @@ const TrackPage = () => {
     const { track } = useParams();
     const trackURL = track.split('-').join(' ');
     const waveformRef = useRef();
-    const clientID = import.meta.env.VITE_CLIENT_ID
-    const clientSecret = import.meta.env.VITE_CLIENT_SECRET
+    // const clientID = import.meta.env.VITE_CLIENT_ID
+    // const clientSecret = import.meta.env.VITE_CLIENT_SECRET
     const [ currentTrack, setCurrentTrack ] = useState()
 
-    const getAccessToken = async () => {
-        const result = await fetch('https://accounts.spotify.com/api/token', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'Authorization': 'Basic ' + btoa(clientID + ':' + clientSecret)
-            },
-            body: 'grant_type=client_credentials'
-        });
-        return result.json();
-    }
+    // const getAccessToken = async () => {
+    //     const result = await fetch('https://accounts.spotify.com/api/token', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/x-www-form-urlencoded',
+    //             'Authorization': 'Basic ' + btoa(clientID + ':' + clientSecret)
+    //         },
+    //         body: 'grant_type=client_credentials'
+    //     });
+    //     return result.json();
+    // }
 
-    const getTracks = async (keyword, token) => {
-        const result = await fetch ('https://api.spotify.com/v1/search?q=' + keyword + '&type=track', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + token
-            }
-        })
-        return result.json();
-    }
+    // const getTracks = async (keyword, token) => {
+    //     const result = await fetch ('https://api.spotify.com/v1/search?q=' + keyword + '&type=track', {
+    //         method: 'GET',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             'Authorization': 'Bearer ' + token
+    //         }
+    //     })
+    //     return result.json();
+    // }
 
     useEffect(() => {
-        const runFuncs = async ( track ) => {
-            let token = await getAccessToken()
-            let trackObj = await getTracks(track, token.access_token);
-            console.log(trackObj.tracks.items[0]);
-            let firstTrack = trackObj.tracks.items[0];
-            setCurrentTrack(currentTrack => firstTrack)
+        // const runFuncs = async ( track ) => {
+        //     let token = await getAccessToken()
+        //     let trackObj = await getTracks(track, token.access_token);
+        //     console.log(trackObj.tracks.items[0]);
+        //     let firstTrack = trackObj.tracks.items[0];
+        //     setCurrentTrack(currentTrack => firstTrack)
+        // }
+        // runFuncs( trackURL )
+        const getSong = async () => {
+            let req = await fetch('http://localhost:3000/songs/' + track,
+            {mode: 'cors'})
+            if (req.ok) {
+                let res = await req.json()
+                setCurrentTrack(currentTrack => res)
+                console.log(res)
+            }
+            else {
+                console.log('error')
+            }
         }
-        runFuncs( trackURL )
+        getSong()
     }, [])
 
     if (waveformRef.current) {
@@ -60,7 +73,7 @@ const TrackPage = () => {
             waveColor: "#C4C4C4",
             cursorColor: "transparent"
         });
-        wavesurfer.load(currentTrack.preview_url)
+        wavesurfer.load(currentTrack.audio)
     }
 
     return (
