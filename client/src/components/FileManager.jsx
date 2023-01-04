@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Table from './Table.jsx'
+import Checkbox from './Checkbox.jsx'
+import '../css/file.css'
 
 const FileManager = () => {
     const [songs, setSongs] = useState([])
@@ -25,7 +27,7 @@ const FileManager = () => {
     
 
     return (
-        <div>
+        <div className="fileImportPage">
             <h1>Manage Files</h1>
             <Table songs={songs} setSongs={setSongs} isCheck={isCheck} setIsCheck={setIsCheck} />
         </div>
