@@ -30,7 +30,7 @@ function App() {
             <Route path={'track/:track'} element={<TrackPage />} />
           </Route>
           <Route path={'/'} element={<GoogleLink />}/>
-          <Route path={'/filemanager'} element={<FileManager files={files}/>}/>
+          <Route path={'/filemanager'} element={<FileManager files={files} setFiles={setFiles} />}/>
         </Routes>
         <Footer profile={profile} setProfile={setProfile} setGdrive={setGdrive} setFiles={setFiles}/>
       </BrowserRouter>
