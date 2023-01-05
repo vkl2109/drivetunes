@@ -77,6 +77,7 @@ const FileImport = ({files, setFiles}) => {
             <h1>Import Files</h1>
             <div>
                 <button onClick={()=>{handleSubmit()}}>Add to library</button>
+                <br></br>
                 <Checkbox
                     type="checkbox"
                     name="selectAll"
