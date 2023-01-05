@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import Table from './Table.jsx'
 import '../css/file.css'
 
-const FileManager = () => {
+const FileManager = ( {profile}) => {
     const [songs, setSongs] = useState([])
     const [isCheck, setIsCheck] = useState([])
     const [songInput, setSongInput] = useState()

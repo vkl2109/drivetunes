@@ -15,7 +15,7 @@ import { useState, useEffect } from 'react'
 function App() {
 
   const [profile, setProfile] = useState();
-  const [ search, setSearch ] = useState('');
+  const [search, setSearch ] = useState('');
   const [ gdrive, setGdrive ] = useState();
   const [files, setFiles] = useState([])
 
@@ -34,8 +34,8 @@ function App() {
             </Route>
           </Route>
           <Route path={'/'} element={<GoogleLink />}/>
-          <Route path={'/fileImport'} element={<FileImport files={files} setFiles={setFiles} />}/>
-          <Route path={'/fileManager'} element={<FileManager />} />
+          <Route path={'/fileImport'} element={<FileImport files={files} setFiles={setFiles} profile={profile}/>}/>
+          <Route path={'/fileManager'} element={<FileManager profile={profile} />} />
         </Routes>
         <Footer profile={profile} setProfile={setProfile} setGdrive={setGdrive} setFiles={setFiles}/>
       </BrowserRouter>

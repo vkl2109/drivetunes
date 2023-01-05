@@ -8,11 +8,9 @@ carousel of artist and albums
 
 >>>IMPORT FILES 
 DONE Make into sortable table with date and name 
-DONE Reformat date 
-
+Reformat date 
 center table and everything
 
-style "add to library" button appear at the right edge of the table 
 
 filter out files that are already in database 
 -fetch all songs
@@ -28,14 +26,12 @@ put google fetch in FileImport.jsx
 
 >>>FILE MANAGER
 DONE Get checkboxes working
-
 center everything
-
-++++++++++++++++++++++++++++++++++++
 Create forms for song album and artist change
-++++++++++++++++++++++++++++++++++++
 
+++++++++++++++++++++++++++++++++++++
 Create patch requests in react for forms
+++++++++++++++++++++++++++++++++++++
 
 Make sorts go both ways and add state dependnet arrows on sort
 
@@ -44,6 +40,7 @@ Make sorts go both ways and add state dependnet arrows on sort
 Add dropdown for file import and manage files 
 
 replace "welcome username" with their google profile picture
+-ask someone why this image wont display
 
 >>>ALBUM page idea 
 assign artwork from here 
