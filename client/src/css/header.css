@@ -1,5 +1,5 @@
 .headerContainer, .footerContainer {
-    height: 77.2px;
+    height: 88.4px;
     width: 100%;
     background-color: #35363a;
     padding: 0;
@@ -10,7 +10,6 @@
     top: 0;
     justify-content: center;
     color: white;
-
 }
 .footerContainer {
     position: absolute;

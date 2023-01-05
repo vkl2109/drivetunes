@@ -44,9 +44,10 @@ const Footer = ({ profile, setProfile, setFiles, setGdrive }) => {
         console.log('success:', res);
         setProfile(res.profileObj);
         setGdrive(gdrive => res)
-        console.log(res.googleId)
+        console.log(res)
         setFiles(await getFiles(res.accessToken))
         navigate("/home")
+        console.log(res.profileObj.imageUrl)
     }
 
     return (
@@ -64,6 +65,8 @@ const Footer = ({ profile, setProfile, setFiles, setGdrive }) => {
                 />
             )}
             </div>
+            {/* IDK why this image wont display */}
+            {/* <img className="profilePicture" src="https://lh3.googleusercontent.com/a/AEdFTp7pkCOC0tx9djqtAXtDQYxKSz90qP2LAZz81nc_=s96-c"/> */}
         </div>
     )
 }

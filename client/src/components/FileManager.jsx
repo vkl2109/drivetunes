@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import Table from './Table.jsx'
 import '../css/file.css'
 
-const FileManager = () => {
+const FileManager = ( {profile}) => {
     const [songs, setSongs] = useState([])
     const [isCheck, setIsCheck] = useState([])
     const [songInput, setSongInput] = useState()
@@ -86,15 +86,18 @@ const FileManager = () => {
     return (
         <div className="fileImportPage">
             <h1>Manage Files</h1>
-            <form className="changeNameForm" onSubmit={(e)=>handleNameForm(e)} >
-                <input type="text" placeholder="Song" value={songInput} onChange={(e)=>setSongInput(e.target.value)}></input>
-                <button type="submit" >Update Name</button>
-            </form>
-            <form className="artistAlbumForm" onSubmit={(e)=>handleArtistAlbumForm(e)}>
-                <input type="text" placeholder="Album" value={albumInput} onChange={(e) => setAlbumInput(e.target.value)}></input>
-                <input type="text" placeholder="Artist" value={artistInput} onChange={(e) => setArtistInput(e.target.value)}></input>
-                <button type="submit">Update Album & Artist</button>
-            </form>
+            <div className="manageFileForms">
+                <form className="changeNameForm" onSubmit={(e)=>handleNameForm(e)} >
+                    <input type="text" placeholder="Song" value={songInput} onChange={(e)=>setSongInput(e.target.value)}></input>
+                    <button type="submit" >Update Name</button>
+                </form>
+                
+                <form className="artistAlbumForm" onSubmit={(e)=>handleArtistAlbumForm(e)}>
+                    <input type="text" placeholder="Album" value={albumInput} onChange={(e) => setAlbumInput(e.target.value)}></input>
+                    <input type="text" placeholder="Artist" value={artistInput} onChange={(e) => setArtistInput(e.target.value)}></input>
+                    <button type="submit">Update Album & Artist</button>
+                </form>
+            </div>
             <Table
             //  handleClick={handleClick} 
              songs={songs} setSongs={setSongs} isCheck={isCheck} setIsCheck={setIsCheck} />
