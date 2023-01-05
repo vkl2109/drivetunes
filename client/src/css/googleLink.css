@@ -4,18 +4,28 @@
     display: flex;
 }
 .Splash {
-    height: 80vh;
+    height: 83vh;
     width: 100vw;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.footerGradient {
+/* .footerGradient {
     position: absolute;
     height: 50%;
     width: 100%;
     bottom: 0;
+} */
+.bottomGradient {
+    position: absolute;
+    height: 15%;
+    width: 100%;
+    bottom: 0;
+    /* background-color: aqua; */
+    /* height: 200px; */
+        /* background-color: rgba(255, 0, 0, 0); */
+        background-image: linear-gradient(#35363a00,#35363a);
 }
 .splashContent {
     height: 80%;
