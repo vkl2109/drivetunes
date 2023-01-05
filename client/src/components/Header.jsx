@@ -28,11 +28,19 @@ const Header = ({ profile, search, setSearch }) => {
             </form>
             {profile ? (
                 <div className="dropdown">
-                    <h2 onClick={()=>setDropDown(dropDown => !dropDown)} className="welcome">Welcome {profile.givenName}!</h2>
-                    <div className="dropdown-content" style={{ display: dropDown ? 'block' : 'none'}}>
-                        <h4 onClick={()=>{navigate('/fileManager')}}>Manage Files</h4>
-                        <h4 onClick={()=>{navigate('/fileImport')}}>Import Files</h4>
+                    <div className="profPicDiv">
+                        <img className="profPic" onClick={() => setDropDown(dropDown => !dropDown)} src={profile.imageUrl}/>
                     </div>
+                    {dropDown ? 
+                    <div className="dropdown-content" style={{ display: dropDown ? 'block' : 'none'}}>
+                        <div onClick={() => { navigate('/fileManager') }}>
+                            <h4 >Manage Files</h4>
+                        </div>
+                        <div onClick={() => { navigate('/fileImport') }}>
+                            <h4 >Import Files</h4>
+                        </div>
+                    </div>
+                        :null}
                 </div>
             ) : (<div> </div>)}
         </div>

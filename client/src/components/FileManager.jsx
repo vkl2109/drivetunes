@@ -103,7 +103,6 @@ const FileManager = ( {profile}) => {
                 </form>
             </div>
             <Table
-            //  handleClick={handleClick} 
              songs={songs} setSongs={setSongs} isCheck={isCheck} setIsCheck={setIsCheck} />
         </div>
     )

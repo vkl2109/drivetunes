@@ -30,12 +30,13 @@ Make sorts go both ways and add state dependnet arrows on sort
 
 
 >>>HEADER 
-Add dropdown for file import and manage files 
-
-replace "welcome username" with their google profile picture
--ask someone why this image wont display
+fix dropdown clickability
+make dropdown not move stuff
 
 >>>ALBUM page idea 
+
+
+
 assign artwork from here 
 one idea: onClick for art that creates a window hovering above that 
 fetch and display images from google drive in a grid

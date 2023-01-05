@@ -11,8 +11,8 @@ class SongsController < ApplicationController
     end
 
     def update
-        # newSong = params[:song].split('-').join(' ')
-        song = Song.find_by!(name: params[:song])
+        newSong = params[:song].split('-').join(' ')
+        song = Song.find_by!(name: newSong)
         song.update!(valid_song_params)
     end
 
