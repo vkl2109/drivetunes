@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get '/songs/:song', to: 'songs#show'
   post '/songs/:song', to: 'songs#create'
   patch '/songs/:song', to: 'songs#update'
+  patch '/songs', to: 'songs#update_songs'
   delete '/songs/:song/delete', to: 'songs#destroy'
 
 end

@@ -73,11 +73,15 @@
 }
 .dropdown-content h4 {
     color: black;
-    background-color: #ddd;
+    background: #ddd;
 }
-.dropdown-content h4:hover {
+.dropdownLink:hover {
     color: black;
-    background-color: rgba(221, 221, 221, 0.736);
+    background: rgba(221, 221, 221, 0.146);
+}
+.dropdownLink {
+    height: 50%;
+    width: 100%;
 }
 .profPic {
     /* size: 60%; */

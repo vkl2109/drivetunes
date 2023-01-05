@@ -30,12 +30,11 @@ const AlbumPage = () => {
 
     return (
         <div className="albumPage">
-            <div className="albumTitle">
-                <img src={albumImg} alt="no image found" className="albumImg"/>
-                <h1>{ albumName }</h1>
-            </div>
-            <hr />
+            <img src={albumImg} alt="no image found" className="albumImg"/>
             <div className="songList">
+                <div className="albumTitle">
+                    <h1>{ albumName }</h1>
+                </div>
                 {songsJSON.map((songJSON, index) => {
                     return <TrackCard songJSON={songJSON} key={index}/>
                 })}

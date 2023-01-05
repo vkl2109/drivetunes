@@ -5,7 +5,7 @@ const AlbumCard = ({ albumJSON }) => {
     return (
         <div className="albumCard">
             <Link to={`/album/${albumJSON.name.split(' ').join('-')}`}>
-                <img src={albumJSON.image} alt="no image found" className="albumImg"/>
+                <img src={albumJSON.image} alt="no image found" className="albumCardImg"/>
             </Link>
             {/* <h4>{albumJSON.name}</h4> */}
         </div>

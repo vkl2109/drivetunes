@@ -33,10 +33,10 @@ const Header = ({ profile, search, setSearch }) => {
                     </div>
                     {dropDown ? 
                     <div className="dropdown-content" style={{ display: dropDown ? 'block' : 'none'}}>
-                        <div onClick={() => { navigate('/fileManager') }}>
+                        <div onClick={() => { navigate('/fileManager') }} className="dropdownLink">
                             <h4 >Manage Files</h4>
                         </div>
-                        <div onClick={() => { navigate('/fileImport') }}>
+                        <div onClick={() => { navigate('/fileImport') }} className="dropdownLink">
                             <h4 >Import Files</h4>
                         </div>
                     </div>

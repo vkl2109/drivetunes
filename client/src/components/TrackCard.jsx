@@ -6,7 +6,7 @@ const TrackCard = ({ songJSON }) => {
         <div className="songCard">
             <Link to={`track/${songJSON.name.split(' ').join('-')}`} className="trackLink">
                 <div className="trackBlock">
-                    {songJSON.album_order}. {songJSON.name}
+                    {songJSON.name}
                 </div>
             </Link>
         </div>
