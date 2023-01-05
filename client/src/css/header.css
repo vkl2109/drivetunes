@@ -63,3 +63,19 @@
 .searchBtn:hover {
     background: white;
 }
+.dropdown {
+    margin-top: 2vh;
+}
+.dropdown-content {
+    background:rgba(255, 255, 255, 0.463);
+    display: none;
+    text-align: center;
+}
+.dropdown-content h4 {
+    color: black;
+    background-color: #ddd;
+}
+.dropdown-content h4:hover {
+    color: black;
+    background-color: rgba(221, 221, 221, 0.736);
+}
