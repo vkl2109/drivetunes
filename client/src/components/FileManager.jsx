@@ -29,27 +29,28 @@ const FileManager = ( {profile}) => {
     const handleNameForm = (e) => {
         e.preventDefault()
 
-        const changeSong = async (originalSong) => {
-            let newSong = originalSong.split(" ").join("-")
+        const changeSong = async () => {
             
             let req = await fetch(
-                `http://localhost:3000/songs/${newSong}`,
+                `http://localhost:3000/songs`,
                 {
                     method: "PATCH",
                     headers: {
                         "Content-type": "application/json",
                     },
                     body: JSON.stringify({
-                        name: songInput
+                        name: songInput,
+                        songs: isCheck
                     })
                 }
             )
         }
+        changeSong()
         // console.log(songInput)
-        isCheck.map((originalSong)=>{
-            changeSong(originalSong)
-            // setSongs(songs => [...songs, originalSong.album: artistInput])
-        })
+        // isCheck.map((originalSong)=>{
+        //     changeSong(originalSong)
+        //     // setSongs(songs => [...songs, originalSong.album: artistInput])
+        // })
 
         setSongInput("")
     }
@@ -57,7 +58,7 @@ const FileManager = ( {profile}) => {
     const handleArtistAlbumForm = (e) => {
         e.preventDefault()
 
-        const changeArtistAlbum = async (originalSong) => {
+        const changeArtistAlbum = async () => {
 
             let req = await fetch(
                 `http://localhost:3000/users/${profile.googleId}/song`,
@@ -70,16 +71,16 @@ const FileManager = ( {profile}) => {
                         name: songInput,
                         artist: artistInput,
                         album: albumInput,
-                        song: originalSong
+                        songs: isCheck
                     })
                 }
             )
         }
 
-
-        isCheck.map((originalSong) => {
-            changeArtistAlbum(originalSong)
-        })
+        changeArtistAlbum()
+        // isCheck.map((originalSong) => {
+        //     changeArtistAlbum(originalSong)
+        // })
         
 
         setAlbumInput("")

@@ -10,6 +10,15 @@ class SongsController < ApplicationController
         render json: song
     end
 
+    def update_songs
+        songs = params[:songs]
+        songs.each do |song|
+            currentSong = Song.find_by(name: song)
+            currentSong.update(name: params[:name])
+        end
+
+    end
+
     def update
         newSong = params[:song].split('-').join(' ')
         song = Song.find_by!(name: newSong)
@@ -31,6 +40,6 @@ class SongsController < ApplicationController
     private
 
     def valid_song_params
-        params.permit(:name, :audio, :album_order, :image, :file_id, :date_created)
+        params.permit(:name, :audio, :album_order, :image, :file_id, :date_created, :songs)
     end
 end

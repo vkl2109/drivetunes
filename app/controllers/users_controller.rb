@@ -23,9 +23,11 @@ class UsersController < ApplicationController
         if album.nil?
             album = Album.create(name: params[:album], artist_id: artist.id)
         end
-        song = Song.find_by(name: params[:song])
-        song.update!(album_id: album.id)
-        render json: song
+        songs = params[:songs]
+        songs.each do |song|
+            currentSong = Song.find_by(name: song)
+            currentSong.update!(album_id: album.id)
+        end
     end
 
     def destroy
@@ -36,6 +38,6 @@ class UsersController < ApplicationController
     private
 
     def valid_user_params
-        params.permit(:name, :artist, :album, :email, :profile_img)
+        params.permit(:name, :artist, :album, :email, :profile_img, :songs)
     end
 end
