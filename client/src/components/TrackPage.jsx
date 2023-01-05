@@ -78,9 +78,11 @@ const TrackPage = () => {
 
     return (
         <div className="trackPage">
-            {trackURL}
-            <div ref={waveformRef} className="waveform"></div>
-            <button onClick={() => wavesurfer.playPause()}>Play/Pause</button>
+            <h1>{trackURL}</h1>
+            <div className="playTrack">
+                <button onClick={() => wavesurfer.playPause()} className="playBtn">Play/Pause</button>
+                <div ref={waveformRef} className="waveform"></div>
+            </div>
         </div>
     )
 }

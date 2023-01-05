@@ -6,7 +6,14 @@
     align-items: center;
     justify-content: center;
 }
+.playTrack {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+}
+.playBtn{
+    border-radius: 1000px;
+}
 .waveform {
-    height: 100px;
-    width: 200px;
+    width: 80%;
 }
