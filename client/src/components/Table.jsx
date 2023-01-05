@@ -38,7 +38,7 @@ const Table = ({ songs, setSongs, isCheck, setIsCheck }) => {
         const { name, checked } = e.target;
         setIsCheck([...isCheck, name]);
         if (!checked) {
-            setIsCheck(isCheck.filter(item => item !== name));
+            setIsCheck(isCheck.filter(i => i !== item));
         }
         console.log(isCheck)
     };
