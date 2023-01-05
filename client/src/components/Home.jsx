@@ -36,7 +36,7 @@ const Home = ({ profile, gdrive }) => {
         const runFuncs = async ( artist ) => {
             let token = await getAccessToken();
             let artists = await getArtist(artist, token.access_token);
-            console.log(artists);
+            // console.log(artists);
             // setArtistsJSON(artistsJSON => [...artistsJSON, artists.artists.items[0]]);
         }
         artists.map(artist => {
@@ -48,7 +48,7 @@ const Home = ({ profile, gdrive }) => {
             if (req.ok) {
                 let res = await req.json()
                 setArtistsJSON(artistsJSON => res.artists)
-                console.log("artists:" + res.artists)
+                console.log(res)
             }
             else {
                 console.log(req.error)
