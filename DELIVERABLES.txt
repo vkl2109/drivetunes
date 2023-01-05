@@ -7,14 +7,6 @@ carousel of artist and albums
 -seed data with art for four albums and artists
 
 >>>IMPORT FILES 
-DONE Make into sortable table with date and name 
-Reformat date 
-center table and everything
-
-
-filter out files that are already in database 
--fetch all songs
--filter out songs with matching ids 
 
 use different fetch request to only get audio files instead of all files 
 

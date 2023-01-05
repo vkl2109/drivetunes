@@ -36,13 +36,13 @@ h1, h2, h3, h4 {
     text-align: center;
 }
 .artistImg {
-    height: 15vh;
-    width: 15vh;
+    height: 25vh;
+    width: 25vh;
     border-radius: 1000px;
     transition: 0.2s ease-in-out;
 }
 .artistImg:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 .artistLink {
     display: flex;
@@ -59,6 +59,6 @@ h1, h2, h3, h4 {
     justify-content: left;
     align-items: center;
 }
-.titleBar h1{
+/* .titleBar h1{
     width: 50%;
-}
+} */

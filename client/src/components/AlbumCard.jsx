@@ -7,7 +7,7 @@ const AlbumCard = ({ albumJSON }) => {
             <Link to={`album/${albumJSON.name.split(' ').join('-')}`}>
                 <img src={albumJSON.image} alt="no image found" className="albumImg"/>
             </Link>
-            <h4>{albumJSON.name}</h4>
+            {/* <h4>{albumJSON.name}</h4> */}
         </div>
     )
 }
