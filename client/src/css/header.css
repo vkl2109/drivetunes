@@ -53,12 +53,12 @@
 }
 .searchBtn {
     background: none;
-    margin-left: 2vh;
+    margin-left: 1vh;
     border: 0px solid white;
-    background: rgba(255, 255, 255, 0.641);
     border-radius: 100px;
     width: 40px;
     height: 40px;
+    background: rgba(255, 255, 255, 0.641);
 }
 .searchBtn:hover {
     background: white;
@@ -78,4 +78,16 @@
 .dropdown-content h4:hover {
     color: black;
     background-color: rgba(221, 221, 221, 0.736);
+}
+.profPic {
+    /* size: 60%; */
+    border-radius: 100%;
+}
+.profPicDiv {
+    width: 44px;
+    height: 44px;
+    background-color: white;
+    border-radius: 100%;
+    display: flex;
+    align-content: center;
 }

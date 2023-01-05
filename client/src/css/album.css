@@ -22,16 +22,11 @@
 }
 
 .albumImg {
-    height: 25vh;
-    width: 25vh;
-    transition: 0.2s ease-in-out;
-    }
-
-.albumImg:hover {
-    transform: scale(1.05);
+    height: 30vh;
+    width: 30vh;
+    /* border-radius: 1000px; */
+    margin: 5vh;
 }
-
-
 .songList {
     height: 60vh;
     width: 60vw;

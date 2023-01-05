@@ -53,6 +53,7 @@ const Footer = ({ profile, setProfile, setFiles, setGdrive }) => {
     return (
         <div className="footerContainer">
             <div className="login">
+
             {profile ? (
                     <GoogleLogout clientId={clientId} buttonText="Log out" onLogoutSuccess={logOut} />) : (
                 <GoogleLogin
@@ -65,8 +66,6 @@ const Footer = ({ profile, setProfile, setFiles, setGdrive }) => {
                 />
             )}
             </div>
-            {/* IDK why this image wont display */}
-            {/* <img className="profilePicture" src="https://lh3.googleusercontent.com/a/AEdFTp7pkCOC0tx9djqtAXtDQYxKSz90qP2LAZz81nc_=s96-c"/> */}
         </div>
     )
 }
