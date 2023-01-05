@@ -5,9 +5,9 @@ import '../css/file.css'
 const FileManager = ( {profile}) => {
     const [songs, setSongs] = useState([])
     const [isCheck, setIsCheck] = useState([])
-    const [songInput, setSongInput] = useState()
-    const [albumInput, setAlbumInput] = useState()
-    const [artistInput, setArtistInput] = useState()
+    const [songInput, setSongInput] = useState("")
+    const [albumInput, setAlbumInput] = useState("")
+    const [artistInput, setArtistInput] = useState("")
 
     useEffect(() => {
         getSongs()
@@ -48,6 +48,7 @@ const FileManager = ( {profile}) => {
         // console.log(songInput)
         isCheck.map((originalSong)=>{
             changeSong(originalSong)
+            // setSongs(songs => [...songs, originalSong.album: artistInput])
         })
 
         setSongInput("")
@@ -55,27 +56,30 @@ const FileManager = ( {profile}) => {
 
     const handleArtistAlbumForm = (e) => {
         e.preventDefault()
-        
-        isCheck.map((originalSong) => {
-            changeArtistAlbum(originalSong)
-        })
 
         const changeArtistAlbum = async (originalSong) => {
-            let newSong = originalSong.split(" ").join("-")
 
             let req = await fetch(
-                `http://localhost:3000/users/${original}/song`,
+                `http://localhost:3000/users/${profile.googleId}/song`,
                 {
                     method: "PATCH",
                     headers: {
                         "Content-type": "application/json",
                     },
                     body: JSON.stringify({
-                        name: songInput
+                        name: songInput,
+                        artist: artistInput,
+                        album: albumInput,
+                        song: originalSong
                     })
                 }
             )
         }
+
+
+        isCheck.map((originalSong) => {
+            changeArtistAlbum(originalSong)
+        })
         
 
         setAlbumInput("")
