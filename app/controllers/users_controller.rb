@@ -15,16 +15,17 @@ class UsersController < ApplicationController
 
     def updateArtistAlbum
         user = User.find_by!(google_id: params[:google_id])
-        artist = Artist.find_by!(name: params[:artist])
+        artist = Artist.find_by(name: params[:artist])
         if artist.nil? 
             artist = Artist.create(name: params[:artist], user_id: user.id )
         end
-        album = Album.find_by!(name: params[:album])
+        album = Album.find_by(name: params[:album])
         if album.nil?
             album = Album.create(name: params[:album], artist_id: artist.id)
         end
-        song = Song.find_by!(name: params[:song])
+        song = Song.find_by(name: params[:song])
         song.update!(album_id: album.id)
+        render json: song
     end
 
     def destroy
