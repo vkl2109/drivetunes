@@ -9,6 +9,22 @@ const FileImport = ({files, setFiles}) => {
     const [isCheckAll, setIsCheckAll] = useState(false)
     const [isCheck, setIsCheck] = useState([])
     const navigate = useNavigate()
+    const [fetchedSongs, setFetchedSongs] = useState([])
+
+    const getSongs = async () => {
+        let req = await fetch(
+            `http://localhost:3000/songs/`,
+            {
+                method: 'GET',
+                headers: { "Content-Type": "application/json" },
+            }
+        )
+        let res = await req.json()
+        console.log(res)
+
+        let fetchedSongIds = res.map((song)=>{song.audio})
+        setFetchedSongs(fetchedSongIds)
+    }
         
     const handleSelectAll = e => {
         setIsCheckAll(!isCheckAll);
@@ -18,6 +34,18 @@ const FileImport = ({files, setFiles}) => {
         }
     };
 
+    useEffect(() => {
+        getSongs()
+        let unaddedSongs = []
+        
+        files.items.map((file)=>{
+            if (!fetchedSongs.includes(file.embedLink)){
+                unaddedSongs = [...unaddedSongs, file]
+            }
+        })
+
+    }, [])
+
     const handleClick = e => {
         const { id, checked } = e.target;
         setIsCheck([...isCheck, id]);
@@ -26,8 +54,7 @@ const FileImport = ({files, setFiles}) => {
         }
     };
 
-    const handleSubmit = () => {
-        
+    const handleSubmit = async () => {
         const postItem = async (file) =>{
             let fileName = file.originalFilename.slice(0, -4).split(' ').join('-')
             let req = await fetch(
