@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post '/users/:google_id', to: 'users#create'
   post '/users/:google_id/song', to: 'users#create_song'
   patch '/users/:name/update', to: 'users#update'
+  patch '/users/:google_id/song', to: 'users#updateArtistAlbum'
   delete '/users/:name/delete', to: 'users#destroy'
 
   get '/artists', to: 'artists#index'
@@ -22,7 +23,7 @@ Rails.application.routes.draw do
   get '/songs', to: 'songs#index'
   get '/songs/:song', to: 'songs#show'
   post '/songs/:song', to: 'songs#create'
-  patch '/songs/:song/update', to: 'songs#update'
+  patch '/songs/:song', to: 'songs#update'
   delete '/songs/:song/delete', to: 'songs#destroy'
 
 end
