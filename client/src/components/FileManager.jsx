@@ -44,6 +44,15 @@ const FileManager = ( {profile}) => {
                     })
                 }
             )
+            // if (req.ok) {
+                setSongs(songs=> songs.map(song => {
+                    isCheck.map(checked => {
+                        if (song.name == checked){
+                            return({...song, name: songInput})
+                        }
+                    })
+                }))
+            // }
         }
         changeSong()
         // console.log(songInput)
