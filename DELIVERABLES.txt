@@ -28,9 +28,10 @@ put google fetch in FileImport.jsx
 DONE Get checkboxes working
 center everything
 Create forms for song album and artist change
+Create patch requests in react for forms
 
 ++++++++++++++++++++++++++++++++++++
-Create patch requests in react for forms
+update front end on submit
 ++++++++++++++++++++++++++++++++++++
 
 Make sorts go both ways and add state dependnet arrows on sort
