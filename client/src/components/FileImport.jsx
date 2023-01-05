@@ -74,7 +74,7 @@ const FileImport = ({files, setFiles}) => {
     return(
         <div className="fileImportPage">
             <h1>Import Files</h1>
-            <div>
+            <div className="manageFileForms">
                 <button onClick={()=>{handleSubmit()}}>Add to library</button>
                 <br></br>
                 <Checkbox

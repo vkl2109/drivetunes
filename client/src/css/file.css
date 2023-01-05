@@ -1,8 +1,27 @@
 .fileImportPage {
+    padding-top: 2vh;
     height: 80vh;
     width: 100vw;
     overflow: auto;
     display: flex;
     align-content: center;
     flex-direction: column;
+}
+
+h1 {
+    margin-left: 4vw;
+    margin-bottom: 1vh;
+    /* text-align: center; */
+}
+
+.manageFileForms {
+    display: flex;
+    margin-right: 4vw;
+    margin-left: 4vw;
+    padding-right: 50px;
+}
+
+.changeNameForm{
+    margin-bottom: 1vh;
+    padding-right: 10px;
 }
