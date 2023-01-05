@@ -26,12 +26,10 @@ function App() {
         <Routes>
           <Route path={'/home'} element={<Home profile={profile} gdrive={gdrive}/>}/>
           <Route path={'/search'} element={<SearchResults search={search}/>}/>
-          <Route path={'/artist/:artist'}>
-            <Route index element={<ArtistPage />} />
-            <Route path={'album/:album'}>
-              <Route index element={<AlbumPage />} />
-              <Route path={'track/:track'} element={<TrackPage />} />
-            </Route>
+          <Route path={'/artist/:artist'} element={<ArtistPage />}/>
+          <Route path={'album/:album'}>
+            <Route index element={<AlbumPage />} />
+            <Route path={'track/:track'} element={<TrackPage />} />
           </Route>
           <Route path={'/'} element={<GoogleLink />}/>
           <Route path={'/fileImport'} element={<FileImport files={files} setFiles={setFiles} profile={profile}/>}/>
