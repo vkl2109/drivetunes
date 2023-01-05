@@ -26,16 +26,18 @@ put google fetch in FileImport.jsx
 -store client key in database
 
 
->>>FILE MANAGER  
-++++++++++++++++++++++++++++++++++++
-Get checkboxes working
-++++++++++++++++++++++++++++++++++++
+>>>FILE MANAGER
+DONE Get checkboxes working
 
+center everything
+
+++++++++++++++++++++++++++++++++++++
 Create forms for song album and artist change
+++++++++++++++++++++++++++++++++++++
 
 Create patch requests in react for forms
 
-center everything
+Make sorts go both ways and add state dependnet arrows on sort
 
 
 >>>HEADER 

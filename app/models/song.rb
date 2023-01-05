@@ -9,4 +9,8 @@ class Song < ApplicationRecord
     def artist_name
         album.artist.name
     end
+
+    def user 
+        album.artist.user.google_id
+    end 
 end

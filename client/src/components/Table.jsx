@@ -1,8 +1,7 @@
-import Checkbox from './Checkbox.jsx'
 import { useState } from 'react'
 
 
-const Table = ({ songs, setSongs, isCheck, setIsCheck, handleClick }) => {    
+const Table = ({ songs, setSongs, isCheck, setIsCheck }) => {    
     const reformatDate = (oldDate) => {
         let date = new Date(oldDate);
     
@@ -20,16 +19,6 @@ const Table = ({ songs, setSongs, isCheck, setIsCheck, handleClick }) => {
         return reformattedDate;
     }
     
-    // selecting songs with checkbox
-    // const handleClick = e => {
-    //     // console.log(e.target)
-    //     const { id, checked } = e.target;
-    //     setIsCheck([...isCheck, id]);
-    //     if (!checked) {
-    //         setIsCheck(isCheck.filter(item => item !== id));
-    //     }
-    // };
-
     const onSort = (key) => {
         let sortedSongs = [...songs]
         
@@ -45,12 +34,20 @@ const Table = ({ songs, setSongs, isCheck, setIsCheck, handleClick }) => {
         });
         setSongs(sortedSongs)
     }
+    const handleClick = e => {
+        const { name, checked } = e.target;
+        setIsCheck([...isCheck, name]);
+        if (!checked) {
+            setIsCheck(isCheck.filter(item => item !== name));
+        }
+        console.log(isCheck)
+    };
 
     return(
         <table>
             <thead>
                 <tr className="TableHeader">
-                    <th onClick={() => onSort('name')}>Select</th>
+                    <th>Select</th>
                     <th onClick={() => onSort('name')}>Song Name</th>
                     <th onClick={() => onSort('album_name')}>Album</th>
                     <th onClick={() => onSort('artist_name')}>Artist</th>
@@ -60,7 +57,14 @@ const Table = ({ songs, setSongs, isCheck, setIsCheck, handleClick }) => {
             <tbody>
                 {songs.map(item => (
                     <tr key={item.id}>
-                        <Checkbox key={item.id} type="checkbox" name={item.originalName} id={item.id} handleClick={handleClick} isChecked={isCheck.includes(item.id)} />
+                        <input
+                            id={item.id}
+                            type="checkbox"
+                            name={item.name}
+                            onChange={handleClick}
+                            // handleClick={handleClick}
+                            isChecked={isCheck.includes(item.id)}
+                        />
                         <td>{item.name}</td>
                         <td>{item.album_name}</td>
                         <td>{item.artist_name}</td>

@@ -15,10 +15,16 @@ body {
 }
 
 table{
-        border: 1px solid rgb(184, 184, 184);
-        border-radius: 3px;
-        border-collapse: collapse;
-        padding: 100px
+    border: 1px solid rgb(184, 184, 184);
+    border-radius: 3px;
+    border-collapse: collapse;
+    padding: 100px;
+    margin-right: 4vw;
+    margin-left: 4vw;
+}
+
+th {
+    text-align: left;
 }
 
 .TableHeader {
@@ -33,4 +39,5 @@ tr:nth-child(even) {
 td {
     padding-left: 10px;
     padding-right: 10px;
+    /* text-align: left; */
 }

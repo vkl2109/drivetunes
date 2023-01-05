@@ -8,7 +8,6 @@ import '../css/file.css'
 const FileImport = ({files, setFiles}) => {
     const [isCheckAll, setIsCheckAll] = useState(false)
     const [isCheck, setIsCheck] = useState([])
-    console.log(files.items)
     const navigate = useNavigate()
         
     const handleSelectAll = e => {
