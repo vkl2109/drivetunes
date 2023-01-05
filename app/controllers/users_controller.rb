@@ -6,7 +6,14 @@ class UsersController < ApplicationController
     def show
         user = User.find_by!(google_id: params[:google_id])
         artists = Artist.where(user_id: user.id)
-        render json: {user: user, artists: artists}
+        # albums = []
+        # artists.each do |artist|
+        #     album = Album.find_by!(artist_id: artist.id)
+        #     if !album.nil?
+        #         albums.push(album)
+        #     end
+        # end
+        render json: user
     end
 
     def update
