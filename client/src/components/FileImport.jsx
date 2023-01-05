@@ -70,7 +70,7 @@ const FileImport = ({files, setFiles}) => {
                 }
             )
         }
-        // map with post request
+
         files.items.map( async (file)=>{
             if(isCheck.includes(file.id)){
                 // console.log(file.originalFilename)
@@ -112,6 +112,25 @@ const FileImport = ({files, setFiles}) => {
                     isChecked={isCheckAll}/>
                 Select All
             </div>
+
+
+            {/* <ul>
+            {files.items.map((file) => {
+                if (file.fileExtension === "mp3" || file.fileExtension === "wav" || file.fileExtension === "m4a") {
+                    return (
+                        <li key={file.id}>
+                            <Checkbox key={file.id} type="checkbox" name={file.originalName} id={file.id} handleClick={handleClick} isChecked={isCheck.includes(file.id)} />
+
+                            <td>{file.originalFilename.slice(0, -4)}</td>
+                            <td>{reformatDate(file.createdDate)}</td>
+                        </li>
+                    )
+                }
+            })
+            }
+            </ul> */}
+
+
             < table >
                 <thead>
                     <tr className="TableHeader">
@@ -137,6 +156,7 @@ const FileImport = ({files, setFiles}) => {
                 }
                 </tbody>
             </table >
+            
         </div>
 
 )
