@@ -66,7 +66,7 @@ const Home = ({ profile, gdrive }) => {
         <div className="homePage">
             <div className="favoriteArtists">
                 <div className="titleBar">
-                    <h4>Your Favorite Artists:</h4>
+                    {/* <h4>Your Favorite Artists:</h4> */}
                 </div>
                 <div className="artistsCarousel">
                     {artistsJSON.map((artistJSON, index) => {
@@ -77,7 +77,7 @@ const Home = ({ profile, gdrive }) => {
             </div>
             <div className="favoriteArtists">
                 <div className="titleBar">
-                    <h4>Your Favorite Albums:</h4>
+                    {/* <h4>Your Favorite Albums:</h4> */}
                 </div>
                 <div className="artistsCarousel">
                     {albumsJSON.map((albumJSON, index) => {

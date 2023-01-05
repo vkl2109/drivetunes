@@ -44,14 +44,3 @@
     justify-content: center;
     align-items: center;
 }
-
-.albumImg {
-    height: 20vh;
-    width: 20vh;
-    border-radius: 1000px;
-    transition: 0.2s ease-in-out;
-}
-
-.albumImg:hover {
-    transform: scale(1.1);
-}
