@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
 import Table from './Table.jsx'
-import Checkbox from './Checkbox.jsx'
 import '../css/file.css'
 
 const FileManager = () => {
@@ -24,10 +23,18 @@ const FileManager = () => {
         setSongs(res)
     }
 
+    const handleClick = e => {
+        const { id, checked } = e.target;
+        setIsCheck([...isCheck, id]);
+        if (!checked) {
+            setIsCheck(isCheck.filter(item => item !== id));
+        }
+    };
+
     return (
         <div className="fileImportPage">
             <h1>Manage Files</h1>
-            <Table songs={songs} setSongs={setSongs} isCheck={isCheck} setIsCheck={setIsCheck} />
+            <Table handleClick={handleClick} songs={songs} setSongs={setSongs} isCheck={isCheck} setIsCheck={setIsCheck} />
         </div>
     )
 }

@@ -2,12 +2,18 @@ class SongsController < ApplicationController
     def index
         songs = Song.all
         totals = []
-        songs.each do |song|
-            album = Album.find_by!(id: song.album_id)
-            artist = Artist.find_by!(id: album.artist_id)
-            totals.push({song: song, album: album.name, artist: artist.name})
-        end
-        render json: totals
+        # songs.each do |song|
+        #     album = Album.find_by!(id: song.album_id)
+        #     artist = Artist.find_by!(id: album.artist_id)
+            
+        #     attr_accessor :album, :artist
+        #     song.album = album.name
+        #     song.artist = artist.name
+
+        #     totals.push({song: song})
+        # end
+        # render json: totals
+        render json: songs
     end
     
     def show
