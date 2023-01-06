@@ -28,6 +28,7 @@ class UsersController < ApplicationController
             currentSong = Song.find_by(name: song)
             currentSong.update!(album_id: album.id)
         end
+        
     end
 
     def destroy
