@@ -1,5 +1,5 @@
 .homePage {
-    height: 81.5vh;
+    height: calc(100vh - 176.8px);
     width: 100vw;
     align-items: center;
     /* display: flex; */
@@ -19,7 +19,7 @@ hr{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     overflow-x: auto;
 }
 

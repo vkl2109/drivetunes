@@ -4,7 +4,7 @@
     display: flex;
 }
 .Splash {
-    height: 83vh;
+    height: calc(100vh - 176.8px);
     width: 100vw;
     position: relative;
     display: flex;
