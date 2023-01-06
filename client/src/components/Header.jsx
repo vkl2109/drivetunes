@@ -31,8 +31,7 @@ const Header = ({ profile, search, setSearch }) => {
                     <div className="profPicDiv">
                         <img className="profPic" onClick={() => setDropDown(dropDown => !dropDown)} src={profile.imageUrl}/>
                     </div>
-                    {dropDown ? 
-                    <div className="dropdown-content" style={{ display: dropDown ? 'block' : 'none'}}>
+                    <div className="dropdown-content" style={{ visibility: dropDown ? 'visible' : 'hidden'}}>
                         <div onClick={() => { navigate('/fileManager') }} className="dropdownLink">
                             <h4 >Manage Files</h4>
                         </div>
@@ -40,7 +39,6 @@ const Header = ({ profile, search, setSearch }) => {
                             <h4 >Import Files</h4>
                         </div>
                     </div>
-                        :null}
                 </div>
             ) : (<div> </div>)}
         </div>
