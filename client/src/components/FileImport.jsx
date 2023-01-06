@@ -20,15 +20,14 @@ const FileImport = ({files, setFiles}) => {
             }
         )
         let res = await req.json()
-        console.log(res)
-
-        let fetchedSongIds = res.map((song)=>{song.audio})
-        setFetchedSongs(fetchedSongIds)
+        let fetchedSongIds = res.map((song)=>song.audio)    
+        let unaddedSongs = files.items.filter((file) => !fetchedSongIds.includes(file.embedLink))
+        setFetchedSongs(unaddedSongs)
     }
         
     const handleSelectAll = e => {
         setIsCheckAll(!isCheckAll);
-        setIsCheck(files.items.map(li => li.id));
+        setIsCheck(fetchedSongs.map(li => li.id));
         if (isCheckAll) {
         setIsCheck([]);
         }
@@ -36,14 +35,7 @@ const FileImport = ({files, setFiles}) => {
 
     useEffect(() => {
         getSongs()
-        let unaddedSongs = []
-        
-        files.items.map((file)=>{
-            if (!fetchedSongs.includes(file.embedLink)){
-                unaddedSongs = [...unaddedSongs, file]
-            }
-        })
-
+    
     }, [])
 
     const handleClick = e => {
@@ -71,7 +63,7 @@ const FileImport = ({files, setFiles}) => {
             )
         }
 
-        files.items.map( async (file)=>{
+        fetchedSongs.map( async (file)=>{
             if(isCheck.includes(file.id)){
                 // console.log(file.originalFilename)
                 await postItem(file)
@@ -112,25 +104,6 @@ const FileImport = ({files, setFiles}) => {
                     isChecked={isCheckAll}/>
                 Select All
             </div>
-
-
-            {/* <ul>
-            {files.items.map((file) => {
-                if (file.fileExtension === "mp3" || file.fileExtension === "wav" || file.fileExtension === "m4a") {
-                    return (
-                        <li key={file.id}>
-                            <Checkbox key={file.id} type="checkbox" name={file.originalName} id={file.id} handleClick={handleClick} isChecked={isCheck.includes(file.id)} />
-
-                            <td>{file.originalFilename.slice(0, -4)}</td>
-                            <td>{reformatDate(file.createdDate)}</td>
-                        </li>
-                    )
-                }
-            })
-            }
-            </ul> */}
-
-
             < table >
                 <thead>
                     <tr className="TableHeader">
@@ -141,7 +114,7 @@ const FileImport = ({files, setFiles}) => {
                 </thead>
                 <tbody>
     
-                {files.items.map((file)=>{
+                {fetchedSongs.map((file)=>{
                         if (file.fileExtension === "mp3" || file.fileExtension === "wav" || file.fileExtension === "m4a"  ) {
                             return (
                             <tr key={file.id}>
