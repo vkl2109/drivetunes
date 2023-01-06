@@ -1,6 +1,6 @@
 .fileImportPage {
     padding-top: 2vh;
-    height: 80vh;
+    height: calc(100vh - 176.8px);
     width: 100vw;
     overflow: auto;
     display: flex;
