@@ -38,9 +38,6 @@ h1, h2, h3, h4 {
     align-items: center;
     text-align: center;
 }
-/* .cropArtist{
-    
-} */
 .artistImg {
     border-radius: 1000px;
     height: 240px;
@@ -53,6 +50,11 @@ h1, h2, h3, h4 {
     transform: scale(1.05);
 }
 .artistLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.albumLink {
     display: flex;
     align-items: center;
     justify-content: center;
