@@ -47,31 +47,37 @@ const FileImport = ({files, setFiles}) => {
     };
 
     const handleSubmit = async () => {
-        const postItem = async (file) =>{
-            let fileName = file.originalFilename.slice(0, -4).split(' ').join('-')
+        const postItem = async (songs) =>{
             let req = await fetch(
-                `http://localhost:3000/songs/${fileName}`,
+                `http://localhost:3000/songs/`,
                 {
                     method: 'POST',
                     headers: {"Content-Type": "application/json"},
                     body: JSON.stringify({
-                        audio: file.embedLink,
-                        file_id: file.id,
-                        date_created: file.createdDate
+                        songs: songs
                     })
                 }
             )
+            if (req.ok){
+                // route to library page
+                navigate('/fileManager')
+            }
         }
-
-        fetchedSongs.map( async (file)=>{
-            if(isCheck.includes(file.id)){
-                // console.log(file.originalFilename)
-                await postItem(file)
+        let postSongs = []
+        fetchedSongs.map((file)=>{
+            if (isCheck.includes(file.id)){
+                let newFile = {
+                    name: file.originalFilename.slice(0, -4),
+                    id: file.id,
+                    embedLink: file.embedLink,
+                    createdDate: file.createdDate
+                }
+                postSongs.push(newFile)
             }
         })
+        console.log(postSongs)
+        postItem(postSongs)
 
-        // route to library page
-        navigate('/fileManager')
 }
     const reformatDate = (oldDate) => {
         let date = new Date(oldDate);

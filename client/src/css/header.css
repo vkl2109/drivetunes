@@ -65,23 +65,30 @@
 }
 .dropdown {
     margin-top: 2vh;
+    display: flex;
+    flex-direction: row;
 }
 .dropdown-content {
     background:rgba(255, 255, 255, 0.463);
-    display: none;
+    visibility: hidden;
     text-align: center;
+    height: 50px
 }
 .dropdown-content h4 {
     color: black;
-    background: #ddd;
+    height: 25px;
+    width: 100px;
 }
-.dropdownLink:hover {
-    color: black;
-    background: rgba(221, 221, 221, 0.146);
-}
+
 .dropdownLink {
     height: 50%;
     width: 100%;
+    background: rgb(221, 221, 221);
+}
+.dropdownLink:hover {
+    color: black;
+    background: rgba(221, 221, 221, 0.5);
+    cursor: grab;
 }
 .profPic {
     /* size: 60%; */
