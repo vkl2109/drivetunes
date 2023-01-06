@@ -51,8 +51,6 @@ const FileManager = ( {profile}) => {
                             return({...song, name: songInput})
                         }
                     }
-                    // isCheck.forEach(checked => {
-                    // })
                     return song
                 }))
             }
@@ -85,6 +83,18 @@ const FileManager = ( {profile}) => {
                     })
                 }
             )
+            if (req.ok){
+                setSongs(songs=> songs.map(song => {
+                    for (let i= 0; i<isCheck.length; i++){
+                        if (song.name == isCheck[i]){
+                            console.log({...song, artist_name: artistInput, album_name: albumInput})
+                            return({...song, artist_name: artistInput, album_name: albumInput})
+                        }
+                    }
+                    return song
+                }))
+            }
+
         }
 
         changeArtistAlbum()
