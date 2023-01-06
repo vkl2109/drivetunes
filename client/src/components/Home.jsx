@@ -25,7 +25,18 @@ const Home = ({ profile, gdrive }) => {
     }
 
     const getArtist = async (keyword, token) => {
-        const result = await fetch ('https://api.spotify.com/v1/search?q=' + keyword + '&type=artist', {
+        const result = await fetch ('https://api.spotify.com/v1/search?q=' + keyword + '&type=album', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            }
+        })
+        return result.json();
+    }
+
+    const getAlbumTracks = async (keyword, token) => {
+        const result = await fetch ('https://api.spotify.com/v1/albums/' + keyword + '/tracks', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -39,12 +50,12 @@ const Home = ({ profile, gdrive }) => {
         const runFuncs = async ( artist ) => {
             let token = await getAccessToken();
             let artists = await getArtist(artist, token.access_token);
-            // console.log(artists);
+            let album = await getAlbumTracks(artists.albums.items[0].id, token.access_token);
+            console.log("album");
+            console.log(album);
             // setArtistsJSON(artistsJSON => [...artistsJSON, artists.artists.items[0]]);
         }
-        artists.map(artist => {
-            runFuncs(artist)
-        })
+        runFuncs("Abbey Road")
         const getUser = async () => {
             let req = await fetch('http://localhost:3000/users/' + gdrive.googleId,
             {mode: 'cors'})

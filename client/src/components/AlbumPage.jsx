@@ -35,9 +35,12 @@ const AlbumPage = () => {
                 <div className="albumTitle">
                     <h1>{ albumName }</h1>
                 </div>
-                {songsJSON.map((songJSON, index) => {
-                    return <TrackCard songJSON={songJSON} key={index}/>
-                })}
+                <div className="allSongs">
+                    {songsJSON.map((songJSON, index) => {
+                        return <TrackCard songJSON={songJSON} key={index}/>
+                    })}
+                </div>
+                
             </div>
         </div>
     )
