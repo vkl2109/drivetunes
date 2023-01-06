@@ -27,10 +27,7 @@
     /* border-radius: 1000px; */
     margin: 5vh;
 }
-.albumCardImg {
-    height: 25vh;
-    width: 25vh;
-}
+
 .songList {
     height: 60vh;
     width: 40vw;

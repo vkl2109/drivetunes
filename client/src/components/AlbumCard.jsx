@@ -3,11 +3,10 @@ import { Link } from "react-router-dom";
 
 const AlbumCard = ({ albumJSON }) => {
     return (
-        <div className="albumCard">
-            <Link to={`/album/${albumJSON.name.split(' ').join('-')}`}>
+        <div >
+            <Link to={`/album/${albumJSON.name.split(' ').join('-')}`} className="albumLink">
                 <img src={albumJSON.image} alt="no image found" className="albumCardImg"/>
             </Link>
-            {/* <h4>{albumJSON.name}</h4> */}
         </div>
     )
 }
