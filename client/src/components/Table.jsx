@@ -38,7 +38,7 @@ const Table = ({ songs, setSongs, isCheck, setIsCheck }) => {
         const { name, checked } = e.target;
         setIsCheck([...isCheck, name]);
         if (!checked) {
-            setIsCheck(isCheck.filter(i => i !== item));
+            setIsCheck(isCheck.filter(i => i !== name));
         }
         console.log(isCheck)
     };
@@ -62,8 +62,7 @@ const Table = ({ songs, setSongs, isCheck, setIsCheck }) => {
                             type="checkbox"
                             name={item.name}
                             onChange={handleClick}
-                            // handleClick={handleClick}
-                            isChecked={isCheck.includes(item.id)}
+                            value={isCheck.includes(item.name)}
                         />
                         <td>{item.name}</td>
                         <td>{item.album_name}</td>

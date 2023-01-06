@@ -44,22 +44,23 @@ const FileManager = ( {profile}) => {
                     })
                 }
             )
-            // if (req.ok) {
+            if (req.ok){
                 setSongs(songs=> songs.map(song => {
-                    isCheck.map(checked => {
-                        if (song.name == checked){
+                    for (let i= 0; i<isCheck.length; i++){
+                        if (song.name == isCheck[i]){
                             return({...song, name: songInput})
                         }
-                    })
+                    }
+                    // isCheck.forEach(checked => {
+                    // })
+                    return song
                 }))
-            // }
+            }
+            console.log(isCheck)
+            setIsCheck(isCheck=>[])
+
         }
         changeSong()
-        // console.log(songInput)
-        // isCheck.map((originalSong)=>{
-        //     changeSong(originalSong)
-        //     // setSongs(songs => [...songs, originalSong.album: artistInput])
-        // })
 
         setSongInput("")
     }
@@ -87,11 +88,6 @@ const FileManager = ( {profile}) => {
         }
 
         changeArtistAlbum()
-        // isCheck.map((originalSong) => {
-        //     changeArtistAlbum(originalSong)
-        // })
-        
-
         setAlbumInput("")
         setArtistInput("")
     }
