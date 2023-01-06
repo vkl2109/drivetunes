@@ -40,8 +40,8 @@ h1, h2, h3, h4 {
 }
 .artistImg {
     border-radius: 1000px;
-    height: 240px;
-    width: 240px;
+    height: calc(45vh - 88.4px);
+    width: calc(45vh - 88.4px);
     margin-left: 1em;
     margin-right: 1em;
     transition: 0.2s ease-in-out;
@@ -61,8 +61,8 @@ h1, h2, h3, h4 {
 }
 
 .albumCardImg {
-    height: 240px;
-    width: 240px;
+    height: calc(45vh - 88.4px);
+    width: calc(45vh - 88.4px);
     margin-left: 1em;
     margin-right: 1em;
     transition: 0.2s ease-in-out;
