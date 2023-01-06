@@ -32,4 +32,4 @@ album5 = Album.create(name: "Beyonce", artist_id: artist8.id, image: "https://up
 unknownAlbum = Album.create(name: 'Unknown Album', artist_id: unknownArtist.id)
 
 song1 = Song.create(name: "Here Comes the Sun", album_order: 1, album_id: album1.id, audio: "https://p.scdn.co/mp3-preview/54cc460f2c430b83b018f540c8a8c33539c1c393?cid=ba90c62fa82b413bb4e3e0d879afdd65")
-song1 = Song.create(name: "", album_order: 1, album_id: unknownAlbum.id, audio: "")
+song2 = Song.create(name: "Empty song", album_order: 1, album_id: unknownAlbum.id, audio: "")
