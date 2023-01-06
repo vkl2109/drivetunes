@@ -29,7 +29,7 @@ const FileImport = ({files, setFiles}) => {
         setIsCheckAll(!isCheckAll);
         setIsCheck(fetchedSongs.map(li => li.id));
         if (isCheckAll) {
-        setIsCheck([]);
+            setIsCheck([]);
         }
     };
 
