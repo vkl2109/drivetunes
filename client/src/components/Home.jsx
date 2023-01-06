@@ -64,24 +64,20 @@ const Home = ({ profile, gdrive }) => {
 
     return (
         <div className="homePage">
-            <div className="favoriteArtists">
+            
                 <div className="artistsCarousel">
                     {artistsJSON.map((artistJSON, index) => {
                         return <ArtistCard artistJSON={artistJSON} key={index}/>
                     })}
                 </div>
-                <hr />
-            </div>
-            <div className="favoriteArtists">
-                <div className="titleBar">
-                    {/* <h4>Your Favorite Albums:</h4> */}
-                </div>
+                {/* <hr classname="homePageDivider"/> */}
+            
                 <div className="artistsCarousel">
                     {albumsJSON.map((albumJSON, index) => {
                         return <AlbumCard albumJSON={albumJSON} key={index}/>
                     })}
                 </div>
-            </div>
+            
         </div>
     )
 }
