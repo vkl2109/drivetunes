@@ -54,8 +54,7 @@ const Footer = ({ profile, setProfile, setFiles, setGdrive }) => {
         <div className="footerContainer">
             <div className="login">
 
-            {profile ? (
-                    <GoogleLogout clientId={clientId} buttonText="Log out" onLogoutSuccess={logOut} />) : (
+            {profile ? (<GoogleLogout clientId={clientId} buttonText="Log out" onLogoutSuccess={logOut} />) : (
                 <GoogleLogin
                     clientId={clientId}
                     buttonText="Sign in with Google"
